@@ -1,0 +1,105 @@
+
+.nav-bar-custom-color{
+    background-color: #025159;
+
+    padding: 0;
+    width: 100vw;
+    height: 15vh;
+
+}
+.header-custom{
+
+}
+
+.nav-item-custom .nav-link{
+    margin-top: 5vh;
+    margin-left: 5vw;
+    justify-content: space-between;
+    font-family: Inter, serif;
+    font-size: 28px;
+    color: white !important;
+
+
+
+}
+
+.nav-item-custom .nav-link:hover {
+    text-decoration: underline; /* Underline effect on hover */
+    color:#F25C05 !important;
+}
+
+.profile-icon-custom {
+    color: white;
+    font-size: 50px;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right:100px;
+    bottom: 0;
+    margin: auto;
+}
+.dropdown-menu-custom {
+    min-width: auto !important; /* Adjust dropdown menu width as needed */
+}
+
+.main-background-color{
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 15vh);
+    background-color:  #F2F2F2;
+}
+
+@media (max-width: 1000px) {
+
+    .nav-item-custom .nav-link {
+        color: #025159 !important;
+    }
+}
+
+{
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: transparent; /* Green color for card header */
+    color: darkslategray; /* White text color for card header */
+    font-size: 22px;
+    font-family: Inter, serif;
+}
+
+.chart-container {
+    position: relative;
+    height: 200px; /* Set a height for the chart container */
+    margin-top: 20px;
+    background-color: #EAE8E8;
+}
+.card-custom{
+    width: 20vw;
+    background-color: #EAE8E8;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    margin: 2vw;
+
+}
+.section-container-custom{
+    position: absolute;
+    left: 15vw;
+    top: 3vw;
+    margin: auto;
+
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+.card-icon{
+    position: absolute;
+    font-size: 25px;
+    right: 15px;
+
+}
+
+
+
+
+
+
