@@ -7,7 +7,7 @@
     height: 15vh;
 
 }
-.header-custom{
+.body-custom{
 
 }
 
@@ -78,6 +78,7 @@
     background-color: #EAE8E8;
     border: 3px solid rgba(0, 0, 0, 0.1);
     margin: 2vw;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 
 }
 .section-container-custom{
@@ -97,6 +98,67 @@
     right: 15px;
 
 }
+
+.section-02-custom{
+    position: absolute;
+    top : 28vw;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 0;
+    width: 70vw;
+    object-fit: cover;
+
+
+}
+.treanding-item-size{
+    position: absolute;
+
+    left: 2vw;
+    width: 10vw;
+    height: 8vw;
+    /*background-color: rgba(225, 217, 206, 0.84);*/
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+
+.card-item-custom{
+    height: 20vh; /* Calculate the height for the card body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.card-item-body-custom{
+    position: absolute;
+    display: flex;
+    flex-direction: row; /* Display items horizontally */
+    justify-content: space-between; /* Add space between items */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    width: 50vw;
+    left: 15vw;
+    color: #025159;
+    font-family: C059, cursive;
+    font-size: 25px ;
+}
+.card-item-body-custom h5{
+    font-size: 25px;
+}
+.trending-item-topic{
+    position: absolute;
+    top: 26vw;
+    left: 18vw;
+    color: #F25C05;
+    font-size: 33px ;
+    font-family: inria Serif, serif;
+    font-weight: bold;
+
+}
+
+
+
 
 
 
