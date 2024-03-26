@@ -1,0 +1,95 @@
+.id-custom{
+
+    margin-top: 50px;
+    margin-left: 50px;
+
+
+}
+.id-custom input{
+    margin-top: 10px;
+    width: 300px;
+}
+.id-custom label{
+    color: #025159;
+    font-family: inria Serif, serif;
+    font-size: 20px;
+}
+.name-custom{
+    margin-top: 50px;
+    margin-right: 70px;
+}
+.name-custom input{
+    margin-top: 10px;
+}
+.name-custom label{
+    color: #025159;
+    font-family: inria Serif, serif;
+    font-size: 20px;
+}
+
+.contact-custom{
+    margin-top: 30px;
+    margin-left:50px ;
+
+}
+.contact-custom input{
+    margin-top: 10px;
+    width: 600px;
+}
+.contact-custom label{
+    color: #025159;
+    font-family: inria Serif, serif;
+    font-size: 20px;
+}
+.address-custom{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.address-custom textarea{
+    width:600px ;
+    margin-top: 10px;
+    color: rgba(2, 81, 89, 0.38);
+    height: 70px;
+}
+.address-custom label{
+    color: #025159;
+    font-family: inria Serif, serif;
+    font-size: 20px;
+}
+.image-customize{
+    position: absolute;
+    left: 700px;
+    top: 200px;
+    background-image: url("../assets/images/istockphoto-1345283077-612x612-removebg-preview.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scaleX(-1); /* Flip the image horizontally */
+    width: 450px;
+    height: 350px;
+
+}
+@media all and (max-width: 1000px) { /* Adjust breakpoint as needed */
+    .row.g-3 > div[class^="col"] {
+        width: 100%;
+        padding: 5px; /* Adjust padding as needed */
+    }
+
+    .image-customize {
+        display: none;
+    }
+
+    .container {
+        padding: 0 10px; /* Adjust horizontal padding as needed */
+    }
+
+    .info-section{
+        width: 500px;
+        height: 800px;
+    }
+
+}
+
+
+
+
