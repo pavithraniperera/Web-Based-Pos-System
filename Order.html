@@ -14,7 +14,7 @@
 
 <body>
 <header class="header-custom">
-    <nav class="navbar navbar-expand-lg  nav-bar-custom-color fixed-top ">
+    <nav class="navbar navbar-expand-lg  nav-bar-custom-color fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/Uneed-logo.png" alt="Bootstrap" width="246" height="127">
@@ -25,19 +25,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-item-custom">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Items</a>
+                        <a class="nav-link" href="Item.html">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Orders</a>
+                        <a class="nav-link" href="Order.html">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Customer</a>
+                        <a class="nav-link" href="Customer.html">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Report</a>
+                        <a class="nav-link" href="Report.html">Report</a>
                     </li>
 
                 </ul>
@@ -50,10 +50,10 @@
                     <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-custom">
-                    <li><a class="dropdown-item active" href="#">Profile</a></li>
+                    <li><a class="dropdown-item active" href="profile.html">Profile</a></li>
                     <li><a class="dropdown-item" href="#">Setting</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Log out</a></li>
+                    <li><a class="dropdown-item" href="Login.html">Log out</a></li>
                 </ul>
             </div>
 
@@ -67,32 +67,33 @@
             <button class="btn btn-outline search-button-custom" type="submit">Search</button>
         </form>
     </div>
-    <div class="date-picker-customer">
-        <input type="date" class="form-control datepicker" id="datepickerInput" placeholder="Select Date">
+    <div class="container">
+        <div class="row justify-content-end mt-3 ">
+            <div class="col-md-3 col-lg-2">
+                <input type="date" class="form-control" id="datepickerInput" placeholder="Select Date">
+            </div>
+        </div>
     </div>
+
 </section>
 <section class="info-section">
-    <div class="row g-3 detail-custom">
-        <div class="col-sm-12 col-md-4">
-            <div class="mb-3">
+    <div class="container detail-custom">
+        <div class="row ">
+            <div class="col-md-4 ">
                 <label for="customerName" class="form-label">Customer Name</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                     <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" aria-label="Customer Name" aria-describedby="customerNameAddon">
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-            <div class="mb-3">
+            <div class="col-md-4">
                 <label for="orderId" class="form-label">Order ID</label>
                 <div class="input-group">
                     <span class="input-group-text">#</span>
                     <input type="text" class="form-control" id="orderId" placeholder="Order ID" aria-label="Order ID" aria-describedby="orderIdAddon">
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-            <div class="mb-3">
+            <div class="col-md-4">
                 <label for="orderDate" class="form-label">Order Date</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -101,42 +102,51 @@
             </div>
         </div>
     </div>
-    <table class="table table-customize">
-        <thead>
-        <tr>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-        </tr>
-        </thead>
-        <tbody id="orderItemList">
-         <tr>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-         </tr>
-         <tr>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-         </tr>
-         <tr>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-         </tr>
-         <tr>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-             <td>item1</td>
-         </tr>
-        </tbody>
-    </table>
+
+
+    <div class="row">
+        <div class="col">
+
+                <!-- Table content here -->
+                <table class="table table-customize table table-bordered table-responsive ">
+                    <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="orderItemList">
+                    <tr>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                    </tr>
+                    <tr>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                    </tr>
+                    <tr>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                    </tr>
+                    <tr>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                        <td>item1</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+        </div>
+    </div>
 
     <label for="orderItemList" class="form-label total-custom">Total : Rs.00.00</label>
 
