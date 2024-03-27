@@ -62,13 +62,8 @@ body{
         width: 500px;
     }
 
-    .info-section{
-        width: 700px;
-        height: 600px;
-    }
-    .table-customize{
-        width: 600px;
-    }
+
+
     .button-container button {
         width: 200px;
 
@@ -80,7 +75,23 @@ body{
         text-align: center;
     }
     .table-section{
-        top: 1000px;
+        top: 1080px;
+       left: 0;
+
+
+    }
+    .table-customize{
+        width: 600px;
+        top: 300px;
+    }
+    .info-section{
+        margin-left: 30px;
+        margin-top: 20px;
+        width: 600px;
+        height: 800px;
+    }
+    .total-custom{
+        top: 600px;
     }
 
 
