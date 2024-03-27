@@ -70,23 +70,34 @@
 
 }
 @media all and (max-width: 1000px) { /* Adjust breakpoint as needed */
-    .row.g-3 > div[class^="col"] {
-        width: 100%;
-        padding: 5px; /* Adjust padding as needed */
-    }
+
 
     .image-customize {
         display: none;
     }
 
     .container {
+
         padding: 0 10px; /* Adjust horizontal padding as needed */
     }
 
     .info-section{
-        width: 500px;
-        height: 800px;
+        width: 800px !important;
     }
+
+    .table-section{
+        top: 1000px !important;
+    }
+    .button-container{
+        width: 500px;
+        left: 0;
+        right: 0;
+        margin : auto;
+    }
+
+
+
+
 
 }
 
