@@ -29,3 +29,113 @@
     bottom: 0;
     left: 0;
 }
+.left-section{
+    position: relative;
+    width: 700px;
+
+}
+.right-section{
+    width: 1000px;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+   top: 0;
+}
+.right-section h1{
+    position: absolute;
+    color:#F25C05;
+    font-size: 100px;
+    font-family: Inter, serif;
+    font-weight: bold;
+
+    left: 100px;
+
+    top: 100px;
+}
+
+.username{
+    position: absolute;
+    left: 0;
+    top: 300px;
+    width: 600px;
+}
+.username label i{
+    font-size: 50px;
+    color: #025159;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.username label{
+    color: #025159;
+    font-size: 40px;
+    font-family: "Abyssinica SIL", serif;
+}
+.username input{
+    height: 50px;
+    border: 3px solid rgba(33, 153, 166, 0.35);
+}
+
+.password{
+    position: absolute;
+    width: 600px;
+    left: 0;
+    top: 500px;
+
+}
+
+.password label i{
+    font-size: 50px;
+    color: #025159;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.password label{
+    color: #025159;
+    font-size: 40px;
+    font-family: "Abyssinica SIL", serif;
+}
+
+.password input{
+    height: 50px;
+    border: 3px solid rgba(33, 153, 166, 0.35);
+}
+.password button{
+    border: 3px solid rgba(33, 153, 166, 0.35);
+}
+
+.sign-in-button{
+    position: absolute;
+    bottom: 100px;
+    background-color: #2199A6;
+    width: 400px;
+    border-radius: 50px;
+    height: 50px;
+    color: white;
+    font-size: 28px;
+    left: 100px;
+    font-family: Inter, serif;
+
+}
+.sign-in-button:hover{
+    background-color: #025159;
+}
+
+
+@media all and (max-width: 1000px){
+    .left-section{
+       display: none;
+    }
+    .right-section{
+        left: 100px;
+        width: 20%;
+    }
+
+    .right-section h1{
+        left: 150px;
+        height:100px;
+        width: 200px;
+        font-size: 60px;
+    }
+
+
+}
