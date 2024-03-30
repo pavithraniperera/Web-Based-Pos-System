@@ -140,6 +140,45 @@
             <i class="fa-solid fa-circle-plus"></i> Add Client
         </button>
     </div>
+    <!-- Edit Modal -->
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col mb-3 ">
+                                <label for="idModal">Customer Id</label>
+                                <input id="idModal" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
+                            </div>
+                            <div class="col  mb-3">
+                                <label for="fNameModal">Name</label>
+                                <input id="fNameModal" type="text" class="form-control" placeholder="Name" aria-label="Name">
+                            </div>
+                            <div class="col-12 mb-3 ">
+                                <label for="ContactModal" class="form-label">Contact</label>
+                                <input type="text" class="form-control" id="ContactModal" placeholder="Contact">
+                            </div>
+                            <div class="col-12 ">
+                                <label for="AddressModal" class="form-label">Address</label>
+                                <textarea class="form-control" id="AddressModal" rows="3" placeholder="Address"></textarea>
+                            </div>
+                            <div class="col-12 ">
+                                <label for="NoteModal" class="form-label">Additional Note</label>
+                                <textarea class="form-control" id="NoteModal" rows="3" placeholder="Additional Note"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Delete Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">

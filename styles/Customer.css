@@ -69,6 +69,25 @@
     height: 350px;
 
 }
+
+.modal-content {
+    padding: 20px;
+    border-radius: 5px;
+}
+.modal-content label{
+    font-size: 20px;
+    color: #025159;
+}
+
+/* Style the modal title */
+.modal-title {
+    font-weight: bold;
+}
+
+/* Add a subtle border and some spacing to the form group */
+.form-group {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd}
 @media all and (max-width: 1000px) {
     /* Adjust breakpoint as needed */
 
