@@ -137,5 +137,32 @@
         font-size: 60px;
     }
 
+}
+@media all and (max-width: 768px){
+   .username,.password{
+       width: 400px;
+   }
+    .password input ,.username input{
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 50px;
+    }
+    .sign-in-button{
+        width: 200px;
+
+    }
+    .username label , .password label{
+        font-size: 30px;
+    }
+    .username label i , .password  label i{
+        font-size: 30px;
+    }
+    .right-section h1{
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
 
 }
