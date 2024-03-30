@@ -96,3 +96,8 @@ body{
 
 
 }
+@media all and(max-width: 768px) {
+    .table-custom{
+        left: 0;
+    }
+}

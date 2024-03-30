@@ -69,8 +69,8 @@
     height: 350px;
 
 }
-@media all and (max-width: 1000px) { /* Adjust breakpoint as needed */
-
+@media all and (max-width: 1000px) {
+    /* Adjust breakpoint as needed */
 
     .image-customize {
         display: none;
@@ -81,20 +81,38 @@
         padding: 0 10px; /* Adjust horizontal padding as needed */
     }
 
-    .info-section{
+    .info-section {
         width: 800px !important;
     }
 
-    .table-section{
+    .table-section {
         top: 1000px !important;
     }
-    .button-container{
+
+    .button-container {
         width: 500px;
         left: 0;
         right: 0;
-        margin : auto;
+        margin: auto;
+    }
+    .id-custom input{
+        width: 100px !important;
     }
 
+}
+
+
+@media all and ( max-width: 768px){
+    .info-section{
+        width: 600px !important;
+    }
+
+    .contact-custom input{
+        width: 400px;
+    }
+    .address-custom textarea{
+        width: 400px !important;
+    }
 
 
 
