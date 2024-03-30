@@ -156,82 +156,100 @@ body{
 
 
 @media all and (max-width: 1000px) {
-
-    .nav-item-custom .nav-link {
-        color: #025159 !important;
+    .navbar-collapse {
+        background-color: #025159;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
-   .section-container-custom{
-       grid-template-columns: 1fr;
-       gap: 10px;
-       padding: 20px;
-      width: 600px;
 
 
-   }
-   .card-custom{
-       width: 400px;
-       height: 500px;
-   }
+        .nav-item-custom .nav-link {
+            color: white !important;
+        }
 
-   .section-02-custom{
-       width: 600px;
-       top: 1700px;
-       left: 10px;
-       right: 0;
-       margin: auto;
-   }
-   .trending-item-topic{
-       top: 1260px;
-   }
-   .card-item-body-custom{
-       flex-direction: column;
-       width: 400px;
-       font-size: 25px;
+        .section-container-custom {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 20px;
+            width: 600px;
 
-   }
-   .card-item-custom{
-       width: 500px;
-       overflow-x: auto;
 
-   }
-    .card-item-body-custom h5{
-        font-size: 22px;
+        }
+
+        .card-custom {
+            width: 400px;
+            height: 500px;
+        }
+
+        .section-02-custom {
+            width: 600px;
+            top: 1700px;
+            left: 10px;
+            right: 0;
+            margin: auto;
+        }
+
+        .trending-item-topic {
+            top: 1260px;
+        }
+
+        .card-item-body-custom {
+            flex-direction: column;
+            width: 400px;
+            font-size: 25px;
+
+        }
+
+        .card-item-custom {
+            width: 500px;
+            overflow-x: auto;
+
+        }
+
+        .card-item-body-custom h5 {
+            font-size: 22px;
+        }
     }
-}
+
+
+
 
 @media all and (max-width: 768px) {
-    .section-02-custom{
+    .section-02-custom {
         width: 600px;
         top: 1400px;
         left: 40px;
 
     }
-    body{
+
+    body {
         overflow-x: hidden;
     }
 
 
-    .section-container-custom{
+    .section-container-custom {
         width: 400px;
     }
 
-    .card-custom{
+    .card-custom {
         right: 30px;
         width: 400px;
         height: 400px;
     }
-    .trending-item-topic{
+
+    .trending-item-topic {
         top: 1350px;
     }
-    .section-02-custom{
+
+    .section-02-custom {
         width: 500px;
     }
-    .treanding-item-size{
+
+    .treanding-item-size {
         width: 100px;
         height: 100px;
     }
-
 }
 
 
