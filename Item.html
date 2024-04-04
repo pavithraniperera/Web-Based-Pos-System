@@ -276,6 +276,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <!-- Customer details form -->
+          <form id="customerDetailsForm">
+            <div class="mb-3">
+              <label for="customerId" class="form-label">Customer ID</label>
+              <input type="text" class="form-control" id="customerId" name="customerId" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="customerName" name="customerName" required>
+            </div>
+          </form>
+
           <!-- Payment options and bill summary content-->
           <h6>Payment Type</h6>
           <div class="form-check">
@@ -305,11 +317,11 @@
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Discount
-              <span>-Rs.105.00</span> <!-- Example discount amount -->
+              <span>-Rs.105.00</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Total
-              <span>Rs.742.97</span> <!-- Example total amount after discount -->
+              <span>Rs.742.97</span>
             </li>
           </ul>
         </div>
@@ -320,6 +332,7 @@
       </div>
     </div>
   </div>
+
 
 
 
