@@ -120,6 +120,23 @@
     background-color: #025159;
 }
 
+@media all and (max-width: 1600px){
+    .left-section{
+  display: none;
+    }
+    body{
+        background-color: #025159;
+    }
+    .right-section label{
+        color: #888888;
+    }
+    .right-section label i{
+        color: #888888;
+    }
+
+
+}
+
 
 @media all and (max-width: 1000px){
     .left-section{
