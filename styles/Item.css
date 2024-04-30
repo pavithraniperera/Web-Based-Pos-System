@@ -85,6 +85,7 @@ section{
     left: 5vw;
     height: 60vh;
     background-color: rgba(2, 81, 89, 0.21);
+    top: 20px;
 
 }
 
@@ -134,6 +135,7 @@ section{
 .item-category-container{
     position: relative;
     left: 6vw;
+    top: -45px;
     width: 12vw;
     height: 2vw;
     border-color: #025159;
@@ -142,7 +144,7 @@ section{
 }
 .item-buy-section{
     position: absolute;
-    top: 15vw;
+    top: 10vw;
     left: 60vw;
     width: 30vw;
     height: 65vh;
