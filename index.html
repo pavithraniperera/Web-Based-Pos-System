@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles/Customer.css">
     <link rel="stylesheet" href="styles/Manage_iten.css">
     <link rel="stylesheet" href="styles/Report.css">
+    <link rel="stylesheet" href="styles/Order.css">
+    <link rel="stylesheet" href="styles/profile.css">
     <link rel="stylesheet" href="assets/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
 <body>
@@ -26,19 +28,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav nav-item-custom">
                     <li class="nav-item">
-                        <span class="nav-link active" aria-current="page" >Home</span>
+                        <span class="nav-link active" aria-current="page" id="nav-home" >Home</span>
                     </li>
                     <li class="nav-item">
                         <span id="nav-item" class="nav-link" >Items</span>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link" >Orders</span>
+                        <span class="nav-link"  id="nav-order">Orders</span>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">Customer</span>
+                        <span class="nav-link" id="nav-customer">Customer</span>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">Report</span>
+                        <span class="nav-link" id="nav-report">Report</span>
                     </li>
 
                 </ul>
@@ -51,7 +53,7 @@
                     <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-custom">
-                    <li><span class="dropdown-item active" >Profile</span></li>
+                    <li><span class="dropdown-item active" id="nav-profile">Profile</span></li>
                     <li><a class="dropdown-item" href="#">Setting</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><span class="dropdown-item">Log out</span></li>
@@ -190,9 +192,9 @@
         </div>
         <!--Add button-->
         <div class="add-item-button-container">
-            <a class="btn btn-primary add-item-button" href="Add_item.html" role="button">
+            <span class="btn btn-primary add-item-button" id="addedItem" >
                 <i class="fa-solid fa-plus"></i> Add New Item
-            </a>
+            </span>
         </div>
 
     </section>
@@ -471,7 +473,7 @@
             </form>
         </div>
     </section>
-    <section class="info-section container">
+    <section class="info-section container desc">
         <div class="container">
             <div class="image-upload-container">
                 <h4 class="mb-4">Upload Image</h4>
@@ -608,7 +610,7 @@
     </section>
 
 
-    <section class="table-section">
+    <section class="table-section custom-style">
         <div class="container mt-4">
             <h2>Items Table</h2>
             <table class="table table-bordered table-custom">
@@ -1153,6 +1155,90 @@
 
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    var css1 = {
+        display:"none"
+    }
+    var css2 ={
+        display: "block",
+        paddingBottom: "20px"
+    }
+    $("#homeSection").css(css2);
+    $("#customerSection").css(css1);
+    $("#addedItemSection").css(css1);
+    $("#itemSection").css(css1);
+    $("#profileSection").css(css1);
+    $("#ReportSection").css(css1);
+    $("#orderSection").css(css1);
 
+
+    $("#nav-item").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css2);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css1);
+    });
+    $("#nav-home").click(function (){
+        $("#homeSection").css(css2);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css1);
+    });
+
+    $("#nav-customer").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css2);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css1);
+    });
+
+    $("#nav-order").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css2);
+    });
+
+    $("#nav-profile").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css2);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css1);
+    });
+    $("#addedItem").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css2);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css1);
+        $("#orderSection").css(css1);
+    });
+    $("#nav-report").click(function (){
+        $("#homeSection").css(css1);
+        $("#customerSection").css(css1);
+        $("#addedItemSection").css(css1);
+        $("#itemSection").css(css1);
+        $("#profileSection").css(css1);
+        $("#ReportSection").css(css2);
+        $("#orderSection").css(css1);
+    })
+
+</script>
 </body>
 </html>
