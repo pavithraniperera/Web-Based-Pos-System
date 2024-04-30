@@ -20,7 +20,7 @@
 }
 .button-custom{
     position: absolute;
-    bottom: 40px;
+    bottom: -30px;
     width: 500px;
     left: 0;
     right: 0;
@@ -44,5 +44,14 @@
     .sales-table td:nth-child(1) {
         /* Make first column (product name) bold on mobile */
         font-weight: bold;
+    }
+    .button-custom{
+        position: absolute;
+        bottom: -80px;
+        width: 500px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #2199A6;
     }
 }
