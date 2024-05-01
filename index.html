@@ -12,1144 +12,1186 @@
     <link rel="stylesheet" href="styles/Report.css">
     <link rel="stylesheet" href="styles/Order.css">
     <link rel="stylesheet" href="styles/profile.css">
-
+    <link rel="stylesheet" href="styles/Login.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <link rel="stylesheet" href="assets/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
-<body>
+<body id="body">
 
-<header class="header-custom">
-    <nav class="navbar navbar-expand-lg  nav-bar-custom-color fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/Uneed-logo.png" alt="Bootstrap" width="246" height="127">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav nav-item-custom" id="nav">
-                    <li class="nav-item">
-                        <span class="nav-link active" aria-current="page" id="nav-home" >Home</span>
-                    </li>
-                    <li class="nav-item">
-                        <span id="nav-item" class="nav-link" >Items</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link"  id="nav-order">Orders</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" id="nav-customer">Customer</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link" id="nav-report">Report</span>
-                    </li>
+<!--login window-->
 
-                </ul>
+<section id="login">
+    <section class="left-section">
+        <div class="side">
+            <div class="logo">
+
             </div>
-            <!--<div class="profile-icon-custom">
-                    <i class="fa-solid fa-user"></i>
-            </div>-->
-            <div class="dropdown profile-icon-custom">
-                <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-custom">
-                    <li><span class="dropdown-item active" id="nav-profile">Profile</span></li>
-                    <li><a class="dropdown-item" href="#">Setting</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><span class="dropdown-item">Log out</span></li>
-                </ul>
-            </div>
+            <div class="custom-image">
 
-        </div>
-    </nav>
-</header>
-
-
-<!--home section-->
-<section class="main-background-color  " id="homeSection">
-    <section class="container section-container-custom">
-        <div class="row">
-            <!-- Card 1: Revenue Bar Chart -->
-            <div class="col-lg-4 ">
-                <div class="card card-custom">
-                    <div class="card-header">
-                        Revenue
-                        <i class="fa-solid fa-hand-holding-dollar card-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="revenueChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2: Expenses Bar Chart -->
-            <div class="col-lg-4 ">
-                <div class="card card-custom">
-                    <div class="card-header">
-                        Expenses
-                        <i class="fa-solid fa-dollar-sign card-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="expensesChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3: Sales Line Chart -->
-            <div class="col-lg-4 ">
-                <div class="card card-custom">
-                    <div class="card-header">
-                        Sales
-                        <i class="fa-solid fa-chart-simple card-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="saleChart"></canvas>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
     </section>
+    <section class="right-section">
+        <h1>Sign In</h1>
 
-    <div class="trending-item-topic">
-        Top Trending  Items
-    </div>
-
-    <section class="container my-5 section-02-custom">
-        <div id="trendingCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Trending Item 1 -->
-                <div class="carousel-item active">
-                    <div class="card card-item-custom">
-                        <div class="treanding-item-size">
-                            <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 1" title="Item 1" >
-                        </div>
-                        <div class="card-body card-item-body-custom">
-                            <h5 class="card-title">Item Name 1</h5>
-                            <p class="card-text price">RS.319.99</p>
-                            <p class="card-text orders">Total Orders: 150</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trending Item 2 -->
-                <div class="carousel-item">
-                    <div class="card card-item-custom">
-                        <div class="treanding-item-size">
-                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 2" title="Item 2" >
-                        </div>
-                        <div class="card-body card-item-body-custom">
-                            <h5 class="card-title">Item Name 2</h5>
-                            <p class="card-text price">Rs.240.99</p>
-                            <p class="card-text orders">Total Orders: 120</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trending Item 3 -->
-                <div class="carousel-item">
-                    <div class="card card-item-custom">
-                        <div class="treanding-item-size">
-                            <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 3" title="Item 3" >
-                        </div>
-                        <div class="card-body card-item-body-custom">
-                            <h5 class="card-title">Item Name 3</h5>
-                            <p class="card-text price">Rs.290.99</p>
-                            <p class="card-text orders">Total Orders: 100</p>
-                        </div>
-                    </div>
-                </div>
-
-
+        <form>
+            <!-- Username input -->
+            <div class="form-group username">
+                <label for="username"> <i class="fas fa-user-circle"></i>Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#trendingCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#trendingCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
+            <!-- Password input -->
+            <div class="form-group password">
+                <label for="password"><i class="fa-solid fa-lock"></i>Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" aria-label="Password" aria-describedby="password-addon">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword"><i class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+            <span class="nav-link" id="nav-login"> <button class="btn btn-outline-secondary sign-in-button" type="button" id="signIn" >Sign In</button></span>
 
+        </form>
+
+    </section>
 </section>
 
-<!--item section-->
-<section id="itemSection">
-    <section>
-        <!--Search bar-->
-        <div class="search-bar-custom">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline search-button-custom" type="submit">Search</button>
-            </form>
+<section id="dashboard">
+    <header class="header-custom">
+        <nav class="navbar navbar-expand-lg  nav-bar-custom-color fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/Uneed-logo.png" alt="Bootstrap" width="246" height="127">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav nav-item-custom" id="nav">
+                        <li class="nav-item">
+                            <span class="nav-link active" aria-current="page" id="nav-home" >Home</span>
+                        </li>
+                        <li class="nav-item">
+                            <span id="nav-item" class="nav-link" >Items</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link"  id="nav-order">Orders</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" id="nav-customer">Customer</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link" id="nav-report">Report</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--<div class="profile-icon-custom">
+                        <i class="fa-solid fa-user"></i>
+                </div>-->
+                <div class="dropdown profile-icon-custom">
+                    <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-custom">
+                        <li><span class="dropdown-item active" id="nav-profile">Profile</span></li>
+                        <li><a class="dropdown-item" href="#">Setting</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><span class="dropdown-item">Log out</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!--home section-->
+    <section class="main-background-color  " id="homeSection">
+        <section class="container section-container-custom">
+            <div class="row">
+                <!-- Card 1: Revenue Bar Chart -->
+                <div class="col-lg-4 ">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            Revenue
+                            <i class="fa-solid fa-hand-holding-dollar card-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Expenses Bar Chart -->
+                <div class="col-lg-4 ">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            Expenses
+                            <i class="fa-solid fa-dollar-sign card-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="expensesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sales Line Chart -->
+                <div class="col-lg-4 ">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            Sales
+                            <i class="fa-solid fa-chart-simple card-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="saleChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="trending-item-topic">
+            Top Trending  Items
         </div>
-        <!--Add button-->
-        <div class="add-item-button-container">
+
+        <section class="container my-5 section-02-custom">
+            <div id="trendingCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Trending Item 1 -->
+                    <div class="carousel-item active">
+                        <div class="card card-item-custom">
+                            <div class="treanding-item-size">
+                                <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 1" title="Item 1" >
+                            </div>
+                            <div class="card-body card-item-body-custom">
+                                <h5 class="card-title">Item Name 1</h5>
+                                <p class="card-text price">RS.319.99</p>
+                                <p class="card-text orders">Total Orders: 150</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Item 2 -->
+                    <div class="carousel-item">
+                        <div class="card card-item-custom">
+                            <div class="treanding-item-size">
+                                <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 2" title="Item 2" >
+                            </div>
+                            <div class="card-body card-item-body-custom">
+                                <h5 class="card-title">Item Name 2</h5>
+                                <p class="card-text price">Rs.240.99</p>
+                                <p class="card-text orders">Total Orders: 120</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Item 3 -->
+                    <div class="carousel-item">
+                        <div class="card card-item-custom">
+                            <div class="treanding-item-size">
+                                <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 3" title="Item 3" >
+                            </div>
+                            <div class="card-body card-item-body-custom">
+                                <h5 class="card-title">Item Name 3</h5>
+                                <p class="card-text price">Rs.290.99</p>
+                                <p class="card-text orders">Total Orders: 100</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#trendingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#trendingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+    </section>
+
+    <!--item section-->
+    <section id="itemSection">
+        <section>
+            <!--Search bar-->
+            <div class="search-bar-custom">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline search-button-custom" type="submit">Search</button>
+                </form>
+            </div>
+            <!--Add button-->
+            <div class="add-item-button-container">
             <span class="btn btn-primary add-item-button" id="addedItem" >
                 <i class="fa-solid fa-plus"></i> Add New Item
             </span>
-        </div>
+            </div>
 
-    </section>
-    <section style="background-color: #eee; " class="item-container ">
-        <select class="form-select mb-2 item-category-container" aria-label="Select weight">
+        </section>
+        <section style="background-color: #eee; " class="item-container ">
+            <select class="form-select mb-2 item-category-container" aria-label="Select weight">
 
-            <optgroup label="Select Category">
-                <option value="250g">Vegetables</option>
-                <option value="500g">Meet and Fish</option>
-                <option value="250g">Fruits</option>
-                <option value="250g">Juice</option>
-            </optgroup>
+                <optgroup label="Select Category">
+                    <option value="250g">Vegetables</option>
+                    <option value="500g">Meet and Fish</option>
+                    <option value="250g">Fruits</option>
+                    <option value="250g">Juice</option>
+                </optgroup>
 
-        </select>
+            </select>
 
-        <div class="container mt-4 ">
-            <div class="items-container">
-                <!-- Item Card 1 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 1">
+            <div class="container mt-4 ">
+                <div class="items-container">
+                    <!-- Item Card 1 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 1">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 1</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
+
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 1</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
+                    <!-- Item Card 2 -->
+                    <div class="card item-card ">
+                        <div class="image-custom">
+                            <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 2">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 2</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- Item Card 2 -->
-                <div class="card item-card ">
-                    <div class="image-custom">
-                        <img src="assets/images/brocoli.png" class="card-img-top" alt="Item 2">
-                    </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 2</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
+                    <!-- Item Card 3 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 3</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- Item Card 3 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
-                    </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 3</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
+                    <!-- Item Card 4 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 3</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- Item Card 4 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
-                    </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 3</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
-                    </div>
-                </div>
+                    <!-- Item Card 5 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 3</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
 
-                <!-- Item Card 5 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 3</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
+                    <!-- Item Card 6 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 3</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
+
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Item Card 6 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
-                    </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 3</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
+                    <!-- Item Card 7 -->
+                    <div class="card item-card">
+                        <div class="image-custom">
+                            <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
+                        </div>
+                        <div class="card-body item-desc-custom">
+                            <h5 class="card-title">Item 3</h5>
+                            <select class="form-select mb-2" aria-label="Select weight">
 
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item Card 7 -->
-                <div class="card item-card">
-                    <div class="image-custom">
-                        <img src="assets/images/carrot-01-removebg-preview.png" class="card-img-top" alt="Item 3">
-                    </div>
-                    <div class="card-body item-desc-custom">
-                        <h5 class="card-title">Item 3</h5>
-                        <select class="form-select mb-2" aria-label="Select weight">
-
-                            <option value="1kg">1 kg</option>
-                            <option value="500g">500 g</option>
-                            <option value="250g">250 g</option>
-                        </select>
-                        <p class="card-text">Price: Rs.215.99</p>
-                        <a class="btn btn-primary item-button" href="#" role="button">
-                            Add Item
-                        </a>
+                                <option value="1kg">1 kg</option>
+                                <option value="500g">500 g</option>
+                                <option value="250g">250 g</option>
+                            </select>
+                            <p class="card-text">Price: Rs.215.99</p>
+                            <a class="btn btn-primary item-button" href="#" role="button">
+                                Add Item
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </section>
+
+
+        <section class="item-buy-section">
+
+            <div class="container">
+                <div class="shopping-cart">
+                    <h4 class="mb-4"> Shopping Cart</h4>
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
+                        <span class="item-name">Item 1</span>
+                        <input type="number" class="form-control quantity-input" value="1" min="1">
+                        <span class="item-price">Rs.210.99</span>
+                    </div>
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
+                        <span class="item-name">Item 2</span>
+                        <input type="number" class="form-control quantity-input" value="1" min="1">
+                        <span class="item-price">Rs.215.99</span>
+                    </div>
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
+                        <span class="item-name">Item 3</span>
+                        <input type="number" class="form-control quantity-input" value="1" min="1">
+                        <div class="item-price">Rs.220.99</div>
+                    </div>
+                    <!-- <div class="cart-item">
+                       <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
+                       <span class="item-name">Item 3</span>
+                       <input type="number" class="form-control quantity-input" value="1" min="1">
+                       <div class="item-price">Rs.220.99</div>
+                     </div>-->
+                    <div class="total-price">Total: Rs.547.97</div>
+
+                    <button class="btn btn-success btn-lg checkout-btn"  data-bs-toggle="modal" data-bs-target="#checkoutModal">
+                        <i class="fa-solid fa-cart-shopping" ></i> Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Checkout Modal -->
+            <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Customer details form -->
+                            <form id="customerDetailsForm">
+                                <div class="mb-3">
+                                    <label for="customerId" class="form-label">Customer ID</label>
+                                    <input type="text" class="form-control" id="customerId" name="customerId" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="custName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="custName" name="customerName" required>
+                                </div>
+                            </form>
+
+                            <!-- Payment options and bill summary content-->
+                            <h6>Payment Type</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentType" id="creditCard" checked>
+                                <label class="form-check-label" for="creditCard">
+                                    Credit Card
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentType" id="paypal">
+                                <label class="form-check-label" for="paypal">
+                                    PayPal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentType" id="normal">
+                                <label class="form-check-label" for="normal">
+                                    Normal
+                                </label>
+                            </div>
+                            <!-- Bill summary -->
+                            <h6 class="mt-3">Bill Summary</h6>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Subtotal
+                                    <span>Rs.847.97</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Discount
+                                    <span>-Rs.105.00</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Total
+                                    <span>Rs.742.97</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </section>
     </section>
 
-
-    <section class="item-buy-section">
-
-        <div class="container">
-            <div class="shopping-cart">
-                <h4 class="mb-4"> Shopping Cart</h4>
-                <div class="cart-item">
-                    <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
-                    <span class="item-name">Item 1</span>
-                    <input type="number" class="form-control quantity-input" value="1" min="1">
-                    <span class="item-price">Rs.210.99</span>
+    <!--Add item section-->
+    <section id="addedItemSection" >
+        <section>
+            <div class="search-bar-custom">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline search-button-custom" type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+        <section class="info-section container desc">
+            <div class="container">
+                <div class="image-upload-container">
+                    <h4 class="mb-4">Upload Image</h4>
+                    <div class="image-preview" id="imagePreview">
+                        <span class="upload-icon">+</span>
+                        <p class="upload-text">Click or drag & drop an image</p>
+                    </div>
+                    <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none;">
+                    <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUpload').click()">
+                        <i class="fa-solid fa-camera"></i>Choose Image
+                    </button>
                 </div>
-                <div class="cart-item">
-                    <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
-                    <span class="item-name">Item 2</span>
-                    <input type="number" class="form-control quantity-input" value="1" min="1">
-                    <span class="item-price">Rs.215.99</span>
-                </div>
-                <div class="cart-item">
-                    <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
-                    <span class="item-name">Item 3</span>
-                    <input type="number" class="form-control quantity-input" value="1" min="1">
-                    <div class="item-price">Rs.220.99</div>
-                </div>
-                <!-- <div class="cart-item">
-                   <img src="https://via.placeholder.com/80" alt="Item Image" class="item-image">
-                   <span class="item-name">Item 3</span>
-                   <input type="number" class="form-control quantity-input" value="1" min="1">
-                   <div class="item-price">Rs.220.99</div>
-                 </div>-->
-                <div class="total-price">Total: Rs.547.97</div>
+            </div>
+            <div class="container form-container-custom">
+                <form>
+                    <div class="mb-3">
+                        <label for="itemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemPrice" class="form-label">Price</label>
+                        <input type="text" class="form-control" id="itemPrice" placeholder="Enter price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemQuantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="itemQuantity" placeholder="Enter quantity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemCategory" class="form-label">Category</label>
+                        <select class="form-select" id="itemCategory">
+                            <option selected>Select category...</option>
+                            <option value="1">Category 1</option>
+                            <option value="2">Category 2</option>
+                            <option value="3">Category 3</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="itemDescription" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                </form>
+            </div>
 
-                <button class="btn btn-success btn-lg checkout-btn"  data-bs-toggle="modal" data-bs-target="#checkoutModal">
-                    <i class="fa-solid fa-cart-shopping" ></i> Proceed to Checkout
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                    <i class="fa-solid fa-broom"></i> Clear
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-circle-plus"></i> Add Item
                 </button>
             </div>
-        </div>
 
-        <!-- Checkout Modal -->
-        <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Customer details form -->
-                        <form id="customerDetailsForm">
-                            <div class="mb-3">
-                                <label for="customerId" class="form-label">Customer ID</label>
-                                <input type="text" class="form-control" id="customerId" name="customerId" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="custName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="custName" name="customerName" required>
-                            </div>
-                        </form>
-
-                        <!-- Payment options and bill summary content-->
-                        <h6>Payment Type</h6>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentType" id="creditCard" checked>
-                            <label class="form-check-label" for="creditCard">
-                                Credit Card
-                            </label>
+            <!-- Delete Modal -->
+            <div class="modal fade" id="itemDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="itemDeleteModalLabel">Delete Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentType" id="paypal">
-                            <label class="form-check-label" for="paypal">
-                                PayPal
-                            </label>
+                        <div class="modal-body">
+                            Are you sure you want to delete this item?
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentType" id="normal">
-                            <label class="form-check-label" for="normal">
-                                Normal
-                            </label>
-                        </div>
-                        <!-- Bill summary -->
-                        <h6 class="mt-3">Bill Summary</h6>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Subtotal
-                                <span>Rs.847.97</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Discount
-                                <span>-Rs.105.00</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Total
-                                <span>Rs.742.97</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Pay Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    </section>
-</section>
-
-<!--Add item section-->
-<section id="addedItemSection" >
-    <section>
-        <div class="search-bar-custom">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline search-button-custom" type="submit">Search</button>
-            </form>
-        </div>
-    </section>
-    <section class="info-section container desc">
-        <div class="container">
-            <div class="image-upload-container">
-                <h4 class="mb-4">Upload Image</h4>
-                <div class="image-preview" id="imagePreview">
-                    <span class="upload-icon">+</span>
-                    <p class="upload-text">Click or drag & drop an image</p>
-                </div>
-                <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none;">
-                <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUpload').click()">
-                    <i class="fa-solid fa-camera"></i>Choose Image
-                </button>
-            </div>
-        </div>
-        <div class="container form-container-custom">
-            <form>
-                <div class="mb-3">
-                    <label for="itemName" class="form-label">Item Name</label>
-                    <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
-                </div>
-                <div class="mb-3">
-                    <label for="itemPrice" class="form-label">Price</label>
-                    <input type="text" class="form-control" id="itemPrice" placeholder="Enter price">
-                </div>
-                <div class="mb-3">
-                    <label for="itemQuantity" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" id="itemQuantity" placeholder="Enter quantity">
-                </div>
-                <div class="mb-3">
-                    <label for="itemCategory" class="form-label">Category</label>
-                    <select class="form-select" id="itemCategory">
-                        <option selected>Select category...</option>
-                        <option value="1">Category 1</option>
-                        <option value="2">Category 2</option>
-                        <option value="3">Category 3</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="itemDescription" class="form-label">Description</label>
-                    <textarea class="form-control" id="itemDescription" rows="3" placeholder="Enter description"></textarea>
-                </div>
-            </form>
-        </div>
-
-
-        <!-- Buttons -->
-        <div class="button-container">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                <i class="fa-solid fa-trash"></i> Delete
-            </button>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                <i class="fa-solid fa-pen-to-square"></i> Edit
-            </button>
-            <button type="reset" class="btn btn-secondary">
-                <i class="fa-solid fa-broom"></i> Clear
-            </button>
-            <button type="submit" class="btn btn-primary">
-                <i class="fa-solid fa-circle-plus"></i> Add Item
-            </button>
-        </div>
-
-        <!-- Delete Modal -->
-        <div class="modal fade" id="itemDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="itemDeleteModalLabel">Delete Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this item?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit Modal -->
-
-        <div class="modal fade" id="itemEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="itemEditModalLabel">Edit Item</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 ">
-                                <h4 class="mb-4">Upload Image (Optional)</h4>
-                                <div class="image-preview" id="imagePreviewModal">
-                                    <span class="upload-icon">+</span>
-                                    <p class="upload-text">Click or drag & drop an image</p>
-                                </div>
-                                <input type="file" id="imageUploadModal" accept=".png, .jpg, .jpeg" style="display: none;">
-                                <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUpload').click()">
-                                    <i class="fa-solid fa-camera"></i>Choose Image
-                                </button>
-                            </div>
-                            <div class="col-md-6 ">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="itemNameModal" class="form-label">Item Name</label>
-                                        <input type="text" class="form-control" id="itemNameModal" placeholder="Enter item name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="itemPriceModal" class="form-label">Price</label>
-                                        <input type="text" class="form-control" id="itemPriceModal" placeholder="Enter price">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="itemQuantityMoadal" class="form-label">Quantity</label>
-                                        <input type="number" class="form-control" id="itemQuantityMoadal" placeholder="Enter quantity">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="itemCategoryModal" class="form-label">Category</label>
-                                        <select class="form-select" id="itemCategoryModal">
-                                            <option selected>Select category...</option>
-                                            <option value="1">Category 1</option>
-                                            <option value="2">Category 2</option>
-                                            <option value="3">Category 3</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
 
-    </section>
+            <!-- Edit Modal -->
 
-
-    <section class="table-section custom-style">
-        <div class="container mt-4">
-            <h2>Items Table</h2>
-            <table class="table table-bordered table-custom">
-                <thead class="bg-orange text-white">
-                <tr>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>$10.99</td>
-                    <td>5</td>
-                    <td>Category A</td>
-                    <td>Description of Item 1</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>$15.99</td>
-                    <td>3</td>
-                    <td>Category B</td>
-                    <td>Description of Item 2</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>$15.99</td>
-                    <td>3</td>
-                    <td>Category B</td>
-                    <td>Description of Item 2</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-</section>
-
-<!--Customer section-->
-
-<section id="customerSection">
-    <section>
-        <div class="search-bar-custom">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search Customer by Id" aria-label="Search">
-                <button class="btn btn-outline search-button-custom" type="submit">Search</button>
-            </form>
-        </div>
-    </section>
-    <section class="info-section  ">
-        <div class="container custom">
-            <form>
-                <div class="row mb-3">
-                    <div class="col mb-3 id-custom">
-                        <label for="id">Customer Id</label>
-                        <input id="id" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
-
-                    </div>
-                    <div class="col name-custom mb-3">
-                        <label for="fName">Name</label>
-                        <input id="fName" type="text" class="form-control" placeholder="Name" aria-label="Name">
-                    </div>
-                    <div class="col-12 mb-3 contact-custom">
-                        <label for="Contact" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="Contact" placeholder="Contact">
-                    </div>
-                    <div class="col-12 address-custom">
-                        <label for="Address" class="form-label">Address</label>
-                        <textarea class="form-control" id="Address" rows="3" placeholder="Address"></textarea>
-                    </div>
-                    <div class="col-12 address-custom">
-                        <label for="Note" class="form-label">Additional Note</label>
-                        <textarea class="form-control" id="Note" rows="3" placeholder="Additional Note"></textarea>
-                    </div>
-                </div>
-
-            </form>
-            <!--     <form>
-                     <div class="row mb-3">
-                         <div class="col-sm-6 mb-3">
-                             <label for="id" class="form-label">Customer Id</label>
-                             <input id="id" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
-                         </div>
-                         <div class="col-sm-6 mb-3">
-                             <label for="fName" class="form-label">Name</label>
-                             <input id="fName" type="text" class="form-control" placeholder="Name" aria-label="Name">
-                         </div>
-                         <div class="col-12 mb-3">
-                             <label for="Contact" class="form-label">Contact</label>
-                             <input type="text" class="form-control" id="Contact" placeholder="Contact">
-                         </div>
-                         <div class="col-12 mb-3 address-custom">
-                             <label for="Address" class="form-label">Address</label>
-                             <textarea class="form-control" id="Address" rows="3" placeholder="Address"></textarea>
-                         </div>
-                         <div class="col-12 mb-3">
-                             <label for="Note" class="form-label">Additional Note</label>
-                             <textarea class="form-control" id="Note" rows="3" placeholder="Additional Note"></textarea>
-                         </div>
-                     </div>
-                 </form>-->
-
-            <div class="image-customize">
-
-            </div>
-
-        </div>
-        <!-- Buttons -->
-        <div class="button-container">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                <i class="fa-solid fa-trash"></i> Delete
-            </button>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                <i class="fa-solid fa-pen-to-square"></i> Edit
-            </button>
-            <button type="reset" class="btn btn-secondary">
-                <i class="fa-solid fa-broom"></i> Clear
-            </button>
-            <button type="submit" class="btn btn-primary">
-                <i class="fa-solid fa-circle-plus"></i> Add Client
-            </button>
-        </div>
-        <!-- Edit Modal -->
-
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+            <div class="modal fade" id="itemEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
+                        <h5 class="modal-title" id="itemEditModalLabel">Edit Item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="row mb-3">
-                                <div class="col mb-3 ">
-                                    <label for="idModal">Customer Id</label>
-                                    <input id="idModal" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h4 class="mb-4">Upload Image (Optional)</h4>
+                                    <div class="image-preview" id="imagePreviewModal">
+                                        <span class="upload-icon">+</span>
+                                        <p class="upload-text">Click or drag & drop an image</p>
+                                    </div>
+                                    <input type="file" id="imageUploadModal" accept=".png, .jpg, .jpeg" style="display: none;">
+                                    <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUpload').click()">
+                                        <i class="fa-solid fa-camera"></i>Choose Image
+                                    </button>
                                 </div>
-                                <div class="col  mb-3">
-                                    <label for="fNameModal">Name</label>
-                                    <input id="fNameModal" type="text" class="form-control" placeholder="Name" aria-label="Name">
-                                </div>
-                                <div class="col-12 mb-3 ">
-                                    <label for="ContactModal" class="form-label">Contact</label>
-                                    <input type="text" class="form-control" id="ContactModal" placeholder="Contact">
-                                </div>
-                                <div class="col-12 ">
-                                    <label for="AddressModal" class="form-label">Address</label>
-                                    <textarea class="form-control" id="AddressModal" rows="3" placeholder="Address"></textarea>
-                                </div>
-                                <div class="col-12 ">
-                                    <label for="NoteModal" class="form-label">Additional Note</label>
-                                    <textarea class="form-control" id="NoteModal" rows="3" placeholder="Additional Note"></textarea>
+                                <div class="col-md-6 ">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="itemNameModal" class="form-label">Item Name</label>
+                                            <input type="text" class="form-control" id="itemNameModal" placeholder="Enter item name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="itemPriceModal" class="form-label">Price</label>
+                                            <input type="text" class="form-control" id="itemPriceModal" placeholder="Enter price">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="itemQuantityMoadal" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" id="itemQuantityMoadal" placeholder="Enter quantity">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="itemCategoryModal" class="form-label">Category</label>
+                                            <select class="form-select" id="itemCategoryModal">
+                                                <option selected>Select category...</option>
+                                                <option value="1">Category 1</option>
+                                                <option value="2">Category 2</option>
+                                                <option value="3">Category 3</option>
+                                            </select>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                        </form>
+                        </div>
                     </div>
+                </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Delete Modal -->
-        <div class="modal fade" id="customerDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="customerDeleteModalLabel">Delete Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this item?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="table-section">
-        <div class="container mt-4">
-            <h2>Items Table</h2>
-            <table class="table table-bordered table-custom">
-                <thead class="bg-orange text-white">
-                <tr>
-                    <th scope="col">Customer Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Additional</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Customer 1</td>
-                    <td>Kamal</td>
-                    <td>0786756456</td>
-                    <td>Category A</td>
-                    <td>Additional Note</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Customer 1</td>
-                    <td>Kamal</td>
-                    <td>0786756456</td>
-                    <td>Category A</td>
-                    <td>Additional Note</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Customer 1</td>
-                    <td>Kamal</td>
-                    <td>0786756456</td>
-                    <td>Category A</td>
-                    <td>Additional Note</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-</section>
-
-<!-- Order section -->
-<section id="orderSection">
-    <section>
-        <div class="search-bar-custom">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline search-button-custom" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="container">
-            <div class="row justify-content-end mt-3 ">
-                <div class="col-md-3 col-lg-2">
-                    <input type="date" class="form-control" id="datepickerInput" placeholder="Select Date">
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section class="info-section">
-        <div class="container detail-custom">
-            <div class="row ">
-                <div class="col-md-4 ">
-                    <label for="customerName" class="form-label">Customer Name</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" aria-label="Customer Name" aria-describedby="customerNameAddon">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="orderId" class="form-label">Order ID</label>
-                    <div class="input-group">
-                        <span class="input-group-text">#</span>
-                        <input type="text" class="form-control" id="orderId" placeholder="Order ID" aria-label="Order ID" aria-describedby="orderIdAddon">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="orderDate" class="form-label">Order Date</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                        <input type="text" class="form-control" id="orderDate" placeholder="Order Date" aria-label="Order Date" aria-describedby="orderDateAddon">
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
 
-        <div class="row">
-            <div class="col">
-
-                <!-- Table content here -->
-                <table class="table table-customize table table-bordered table-responsive ">
-                    <thead>
+        <section class="table-section custom-style">
+            <div class="container mt-4">
+                <h2>Items Table</h2>
+                <table class="table table-bordered table-custom">
+                    <thead class="bg-orange text-white">
                     <tr>
-                        <th>Item Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
-                    <tbody id="orderItemList">
+                    <tbody>
                     <tr>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
+                        <td>Item 1</td>
+                        <td>$10.99</td>
+                        <td>5</td>
+                        <td>Category A</td>
+                        <td>Description of Item 1</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
+                        <td>Item 2</td>
+                        <td>$15.99</td>
+                        <td>3</td>
+                        <td>Category B</td>
+                        <td>Description of Item 2</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
+                        <td>Item 2</td>
+                        <td>$15.99</td>
+                        <td>3</td>
+                        <td>Category B</td>
+                        <td>Description of Item 2</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
-                        <td>item1</td>
-                    </tr>
+                    <!-- Add more rows as needed -->
                     </tbody>
                 </table>
-
             </div>
-        </div>
-
-        <label for="orderItemList" class="form-label total-custom">Total : Rs.00.00</label>
-
-        <!-- Buttons -->
-        <div class="button-container">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                <i class="fa-solid fa-trash"></i> Delete
-            </button>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                <i class="fa-solid fa-pen-to-square"></i> Edit
-            </button>
-            <button type="reset" class="btn btn-secondary">
-                <i class="fa-solid fa-broom"></i> Clear
-            </button>
-
-        </div>
-
-        <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this item?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </section>
     </section>
 
-    <section class="table-section">
-        <div class="container mt-4">
-            <h2>Orders Table</h2>
-            <table class="table table-bordered table-custom">
-                <thead class="bg-orange text-white">
-                <tr>
-                    <th scope="col">Order Id</th>
-                    <th scope="col">Customer Id</th>
-                    <th scope="col">Item Id</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Price</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>Customer 1</td>
-                    <td>$10.99</td>
-                    <td>5</td>
-                    <td>Category A</td>
-                    <td>Description of Item 1</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>Customer 1</td>
-                    <td>$15.99</td>
-                    <td>3</td>
-                    <td>Category B</td>
-                    <td>Description of Item 2</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>$15.99</td>
-                    <td>Customer 1</td>
-                    <td>3</td>
-                    <td>Category B</td>
-                    <td>Description of Item 2</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                </tr>
-                <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
+    <!--Customer section-->
+
+    <section id="customerSection">
+        <section>
+            <div class="search-bar-custom">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search Customer by Id" aria-label="Search">
+                    <button class="btn btn-outline search-button-custom" type="submit">Search</button>
+                </form>
+            </div>
+        </section>
+        <section class="info-section  ">
+            <div class="container custom">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col mb-3 id-custom">
+                            <label for="id">Customer Id</label>
+                            <input id="id" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
+
+                        </div>
+                        <div class="col name-custom mb-3">
+                            <label for="fName">Name</label>
+                            <input id="fName" type="text" class="form-control" placeholder="Name" aria-label="Name">
+                        </div>
+                        <div class="col-12 mb-3 contact-custom">
+                            <label for="Contact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="Contact" placeholder="Contact">
+                        </div>
+                        <div class="col-12 address-custom">
+                            <label for="Address" class="form-label">Address</label>
+                            <textarea class="form-control" id="Address" rows="3" placeholder="Address"></textarea>
+                        </div>
+                        <div class="col-12 address-custom">
+                            <label for="Note" class="form-label">Additional Note</label>
+                            <textarea class="form-control" id="Note" rows="3" placeholder="Additional Note"></textarea>
+                        </div>
+                    </div>
+
+                </form>
+                <!--     <form>
+                         <div class="row mb-3">
+                             <div class="col-sm-6 mb-3">
+                                 <label for="id" class="form-label">Customer Id</label>
+                                 <input id="id" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
+                             </div>
+                             <div class="col-sm-6 mb-3">
+                                 <label for="fName" class="form-label">Name</label>
+                                 <input id="fName" type="text" class="form-control" placeholder="Name" aria-label="Name">
+                             </div>
+                             <div class="col-12 mb-3">
+                                 <label for="Contact" class="form-label">Contact</label>
+                                 <input type="text" class="form-control" id="Contact" placeholder="Contact">
+                             </div>
+                             <div class="col-12 mb-3 address-custom">
+                                 <label for="Address" class="form-label">Address</label>
+                                 <textarea class="form-control" id="Address" rows="3" placeholder="Address"></textarea>
+                             </div>
+                             <div class="col-12 mb-3">
+                                 <label for="Note" class="form-label">Additional Note</label>
+                                 <textarea class="form-control" id="Note" rows="3" placeholder="Additional Note"></textarea>
+                             </div>
+                         </div>
+                     </form>-->
+
+                <div class="image-customize">
+
+                </div>
+
+            </div>
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                    <i class="fa-solid fa-broom"></i> Clear
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-circle-plus"></i> Add Client
+                </button>
+            </div>
+            <!-- Edit Modal -->
+
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col mb-3 ">
+                                        <label for="idModal">Customer Id</label>
+                                        <input id="idModal" type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id">
+                                    </div>
+                                    <div class="col  mb-3">
+                                        <label for="fNameModal">Name</label>
+                                        <input id="fNameModal" type="text" class="form-control" placeholder="Name" aria-label="Name">
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <label for="ContactModal" class="form-label">Contact</label>
+                                        <input type="text" class="form-control" id="ContactModal" placeholder="Contact">
+                                    </div>
+                                    <div class="col-12 ">
+                                        <label for="AddressModal" class="form-label">Address</label>
+                                        <textarea class="form-control" id="AddressModal" rows="3" placeholder="Address"></textarea>
+                                    </div>
+                                    <div class="col-12 ">
+                                        <label for="NoteModal" class="form-label">Additional Note</label>
+                                        <textarea class="form-control" id="NoteModal" rows="3" placeholder="Additional Note"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="customerDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="customerDeleteModalLabel">Delete Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this item?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="table-section">
+            <div class="container mt-4">
+                <h2>Items Table</h2>
+                <table class="table table-bordered table-custom">
+                    <thead class="bg-orange text-white">
+                    <tr>
+                        <th scope="col">Customer Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Additional</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Customer 1</td>
+                        <td>Kamal</td>
+                        <td>0786756456</td>
+                        <td>Category A</td>
+                        <td>Additional Note</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Customer 1</td>
+                        <td>Kamal</td>
+                        <td>0786756456</td>
+                        <td>Category A</td>
+                        <td>Additional Note</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Customer 1</td>
+                        <td>Kamal</td>
+                        <td>0786756456</td>
+                        <td>Category A</td>
+                        <td>Additional Note</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </section>
-</section>
 
-<!-- profile section -->
-<section id="profileSection"  class="section">
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><i class="fa-solid fa-circle-user profile-custom"></i><!--<img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">--><span class="font-weight-bold">Pavithrani</span><span class="text-black-50">Pavithrani@gmail.com</span><span> </span></div>
+    <!-- Order section -->
+    <section id="orderSection">
+        <section>
+            <div class="search-bar-custom">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline search-button-custom" type="submit">Search</button>
+                </form>
             </div>
-            <div class="col-md-5 border-right custom">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right text-custom">Profile Settings</h4>
+            <div class="container">
+                <div class="row justify-content-end mt-3 ">
+                    <div class="col-md-3 col-lg-2">
+                        <input type="date" class="form-control" id="datepickerInput" placeholder="Select Date">
                     </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                </div>
+            </div>
+
+        </section>
+        <section class="info-section">
+            <div class="container detail-custom">
+                <div class="row ">
+                    <div class="col-md-4 ">
+                        <label for="customerName" class="form-label">Customer Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" aria-label="Customer Name" aria-describedby="customerNameAddon">
+                        </div>
                     </div>
-                    <div class="row mt-3 custom">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                        <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                    <div class="col-md-4">
+                        <label for="orderId" class="form-label">Order ID</label>
+                        <div class="input-group">
+                            <span class="input-group-text">#</span>
+                            <input type="text" class="form-control" id="orderId" placeholder="Order ID" aria-label="Order ID" aria-describedby="orderIdAddon">
+                        </div>
                     </div>
-
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Edit Profile</button></div>
+                    <div class="col-md-4">
+                        <label for="orderDate" class="form-label">Order Date</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            <input type="text" class="form-control" id="orderDate" placeholder="Order Date" aria-label="Order Date" aria-describedby="orderDateAddon">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5 custom">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in This Field</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
 
 
-<!-- Report section -->
-<section id="ReportSection">
-    <section>
-        <div class="container">
-            <div class="card mt-5">
-                <div class="card-header">
-                    <h1>Grocery Sales Chart</h1>
-                </div>
-                <div class="card-body">
-                    <canvas id="salesChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="card mt-5">
-                <div class="card-header">
-                    <h1>Grocery Sales table</h1>
-                </div>
-                <div class="card-body">
-                    <table class="sales-table">
+            <div class="row">
+                <div class="col">
+
+                    <!-- Table content here -->
+                    <table class="table table-customize table table-bordered table-responsive ">
                         <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Quantity Sold</th>
-                            <th>Total Revenue</th>
-
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="orderItemList">
                         <tr>
-                            <td>Apples</td>
-                            <td>100</td>
-                            <td>Rs.6150.00</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
                         </tr>
                         <tr>
-                            <td>Bananas</td>
-                            <td>80</td>
-                            <td>Rs.1120.00</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
                         </tr>
                         <tr>
-                            <td>Milk</td>
-                            <td>75</td>
-                            <td>Rs.3497.50</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                        </tr>
+                        <tr>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
+                            <td>item1</td>
                         </tr>
                         </tbody>
                     </table>
+
+                </div>
+            </div>
+
+            <label for="orderItemList" class="form-label total-custom">Total : Rs.00.00</label>
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                    <i class="fa-solid fa-broom"></i> Clear
+                </button>
+
+            </div>
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this item?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="table-section">
+            <div class="container mt-4">
+                <h2>Orders Table</h2>
+                <table class="table table-bordered table-custom">
+                    <thead class="bg-orange text-white">
+                    <tr>
+                        <th scope="col">Order Id</th>
+                        <th scope="col">Customer Id</th>
+                        <th scope="col">Item Id</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Customer 1</td>
+                        <td>$10.99</td>
+                        <td>5</td>
+                        <td>Category A</td>
+                        <td>Description of Item 1</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Item 2</td>
+                        <td>Customer 1</td>
+                        <td>$15.99</td>
+                        <td>3</td>
+                        <td>Category B</td>
+                        <td>Description of Item 2</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Item 2</td>
+                        <td>$15.99</td>
+                        <td>Customer 1</td>
+                        <td>3</td>
+                        <td>Category B</td>
+                        <td>Description of Item 2</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <!-- profile section -->
+    <section id="profileSection"  class="section">
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><i class="fa-solid fa-circle-user profile-custom"></i><!--<img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">--><span class="font-weight-bold">Pavithrani</span><span class="text-black-50">Pavithrani@gmail.com</span><span> </span></div>
+                </div>
+                <div class="col-md-5 border-right custom">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right text-custom">Profile Settings</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                            <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                        </div>
+                        <div class="row mt-3 custom">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                            <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                            <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                            <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                            <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                        </div>
+
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Edit Profile</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5 custom">
+                        <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                        <div class="col-md-12"><label class="labels">Experience in This Field</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
+                        <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
-    <div class="btn-group button-custom button-container">
-        <button class="btn btn-primary" id="print-btn"> <i class="fa-solid fa-print"></i>Print</button>
-        <button class="btn btn-secondary" id="download-btn"><i class="fa-solid fa-download"></i>Download</button>
-    </div>
+    <!-- Report section -->
+    <section id="ReportSection">
+        <section>
+            <div class="container">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1>Grocery Sales Chart</h1>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1>Grocery Sales table</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="sales-table">
+                            <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity Sold</th>
+                                <th>Total Revenue</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Apples</td>
+                                <td>100</td>
+                                <td>Rs.6150.00</td>
+                            </tr>
+                            <tr>
+                                <td>Bananas</td>
+                                <td>80</td>
+                                <td>Rs.1120.00</td>
+                            </tr>
+                            <tr>
+                                <td>Milk</td>
+                                <td>75</td>
+                                <td>Rs.3497.50</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="btn-group button-custom button-container">
+            <button class="btn btn-primary" id="print-btn"> <i class="fa-solid fa-print"></i>Print</button>
+            <button class="btn btn-secondary" id="download-btn"><i class="fa-solid fa-download"></i>Download</button>
+        </div>
+    </section>
 </section>
+
+
+
 
 
 
@@ -1157,5 +1199,7 @@
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="assets/Javascript/script.js"></script>
+<script src="assets/Javascript/dashboard.js"></script>
+
 </body>
 </html>

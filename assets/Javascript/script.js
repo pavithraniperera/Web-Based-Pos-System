@@ -73,8 +73,23 @@
         handleNavClick($(this).attr("id"));
     });
     $(document).ready(function() { // This function runs when the document is ready
-        handleNavClick("nav-home");
+      /*  handleNavClick("nav-home");*/
+        $("#dashboard").css(css1);
+        $("body").css({
+            paddingTop:0
+        })
     });
+
+    $("#nav-login").click(function (){
+        $("#login").css(css1)
+        $("#dashboard").css(css2);
+        handleNavClick("nav-home");
+        $("body").css({
+            paddingTop:150
+        })
+    })
+
+
 
 
 
