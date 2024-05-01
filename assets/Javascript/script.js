@@ -87,6 +87,14 @@
         $("body").css({
             paddingTop:150
         })
+    });
+
+    $("#logOut").click(function (){
+        $("#dashboard").css(css1);
+        $("#login").css(css2);
+        $("body").css({
+            paddingTop:0
+        })
     })
 
 
