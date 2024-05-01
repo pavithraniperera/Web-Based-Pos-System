@@ -38,15 +38,49 @@
         <form>
             <!-- Username input -->
             <div class="form-group username">
-                <label for="username"> <i class="fas fa-user-circle"></i>Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                <label for="usernameModal"> <i class="fas fa-user-circle"></i>Username</label>
+                <input type="text" class="form-control" id="usernameModal" placeholder="Enter your username">
             </div>
             <!-- Password input -->
             <div class="form-group password">
-                <label for="password"><i class="fa-solid fa-lock"></i>Password</label>
+                <label for="passwordModal"><i class="fa-solid fa-lock"></i>Password</label>
                 <div class="input-group">
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" aria-label="Password" aria-describedby="password-addon">
+                    <input type="password" class="form-control" id="passwordModal" placeholder="Enter your password" aria-label="Password" aria-describedby="password-addon">
                     <button class="btn btn-outline-secondary" type="button" id="togglePassword"><i class="fa-solid fa-eye"></i></button>
+                </div>
+               <span class="btn-span">Don't you have an account ? <button type="button" class="btn btn-primary reg-btn" data-bs-toggle="modal" data-bs-target="#registerModal" >
+                    Register
+                </button></span>
+
+                <div class="modal fade reg-modal"  id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content rounded-3 shadow">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="registerForm">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label reg-modal">Username</label>
+                                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label reg-modal">Password</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirmPassword" class="form-label reg-modal">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" form="registerForm" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <span class="nav-link" id="nav-login"> <button class="btn btn-outline-secondary sign-in-button" type="button" id="signIn" >Sign In</button></span>
@@ -561,10 +595,10 @@
 
             <!-- Buttons -->
             <div class="button-container">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#itemDeleteModal">
                     <i class="fa-solid fa-trash"></i> Delete
                 </button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#itemEditModal">
                     <i class="fa-solid fa-pen-to-square"></i> Edit
                 </button>
                 <button type="reset" class="btn btn-secondary">
@@ -777,7 +811,7 @@
             </div>
             <!-- Buttons -->
             <div class="button-container">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#customerDeleteModal">
                     <i class="fa-solid fa-trash"></i> Delete
                 </button>
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
