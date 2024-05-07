@@ -63,8 +63,18 @@ $(document).ready(function (){
         $("#itemName").val(name);
         $("#itemPrice").val(price);
         $("#itemQuantity").val(qty);
-        $("#itemCategory").val(category);
         $("#itemDescription").val(desc);
+        $("#itemCategory").empty();
+
+        // Add new options
+        let categories = ["Category 1", "Category 2", "Category 3"]; // Example categories
+        categories.forEach((cat) => {
+            let option = $("<option></option>").attr("value", cat).text(cat);
+            if (cat === category) {
+                option.attr("selected", true); // Select the matching category
+            }
+            $("#itemCategory").append(option);
+        });
         editItem = new AddedItemModal(name,price,qty,category,desc);
     });
     $("#editItem").click(function (){
@@ -72,6 +82,7 @@ $(document).ready(function (){
         $("#itemPriceModal").val(editItem.price);
         $("#itemQuantityMoadal").val(editItem.quantity);
         $("#itemCategoryModal").val(editItem.category);
+        console.log(editItem.category);
 
     });
 
@@ -80,7 +91,8 @@ $(document).ready(function (){
         var nameModalValue = $("#itemNameModal").val();
         var priceModalValue = $("#itemPriceModal").val();
         var qtyModalValue = $("#itemQuantityMoadal").val();
-        var categoryModalValue = $("#itemCategoryModal").val();
+        var Value =document.getElementById("itemCategoryModal");
+        var categoryModalValue =  Value.options[Value.selectedIndex].text;
 
 
         let itemObj = itemArray[recordIndex];
@@ -116,7 +128,6 @@ $(document).ready(function (){
         $("#text").text("Successfully Deleted a customer")
         $("#successModal").modal("show");
     });
-
 
 
 
