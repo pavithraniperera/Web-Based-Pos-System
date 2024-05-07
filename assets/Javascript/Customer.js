@@ -109,6 +109,16 @@ $(document).ready(function () {
     });
 
 
+    $("#confirmDelete").click(function (){
+        customerArray.splice(recordIndex,1);
+        loadTable();
+        $("#customerDeleteModal").modal("hide");
+        resetInputFields();
+        $("#text").text("Successfully Deleted a customer")
+        $("#successModal").modal("show");
+    })
+
+
 
 });
 
