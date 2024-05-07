@@ -76,6 +76,39 @@ $(document).ready(function () {
         $("#Note").val(note);
         editCustomer = new CustomerModel(id,name,contact,address,note);
     });
+    $("#editCustomer").click(function (){
+        $("#idModal").val(editCustomer.id);
+        $("#fNameModal").val(editCustomer.name);
+        $("#ContactModal").val(editCustomer.contact);
+        $("#AddressModal").val(editCustomer.address);
+        $("#NoteModal").val(editCustomer.note);
+    });
+
+    $("#saveChanges").click(function (){
+        var idModalValue = $("#idModal").val();
+        var fNameModalValue = $("#fNameModal").val();
+        var ContactModalValue = $("#ContactModal").val();
+        var AddressModalValue = $("#AddressModal").val();
+        var NoteModalValue = $("#NoteModal").val();
+
+        let cusObj = customerArray[recordIndex];
+        cusObj.id =idModalValue;
+        cusObj.name =fNameModalValue;
+        cusObj.contact = ContactModalValue;
+        cusObj.address = AddressModalValue;
+        cusObj.note = NoteModalValue;
+        $("#editModal").modal("hide");
+        loadTable();
+        resetInputFields();
+        $("#successModal").modal("show");
+
+    });
+
+    $("#okBtn").click(function (){
+        $("#successModal").modal("hide");
+    });
+
+
 
 });
 
