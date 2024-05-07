@@ -67,6 +67,55 @@ $(document).ready(function (){
         $("#itemDescription").val(desc);
         editItem = new AddedItemModal(name,price,qty,category,desc);
     });
+    $("#editItem").click(function (){
+        $("#itemNameModal").val(editItem.name);
+        $("#itemPriceModal").val(editItem.price);
+        $("#itemQuantityMoadal").val(editItem.quantity);
+        $("#itemCategoryModal").val(editItem.category);
+
+    });
+
+
+    $("#saveItemChanges").click(function (){
+        var nameModalValue = $("#itemNameModal").val();
+        var priceModalValue = $("#itemPriceModal").val();
+        var qtyModalValue = $("#itemQuantityMoadal").val();
+        var categoryModalValue = $("#itemCategoryModal").val();
+
+
+        let itemObj = itemArray[recordIndex];
+        itemObj.name =nameModalValue;
+        itemObj.price =priceModalValue;
+        itemObj.quantity = qtyModalValue;
+        itemObj.category = categoryModalValue;
+
+        $("#itemEditModal").modal("hide");
+        loadTable();
+        resetForm()
+        $("#successModal").modal("show");
+
+    });
+    $("#okBtn").click(function (){
+        $("#successModal").modal("hide");
+    });
+
+    function resetForm() {
+        $(".info-section input, .info-section textarea").val(""); // Set value to empty string for input and textarea elements
+        $(".info-section select").prop("selectedIndex", 0);
+    }
+
+    $("#clearCustomer").click(function (){
+        resetForm();
+    });
+
+    $("#confirmItemDelete").click(function (){
+        itemArray.splice(recordIndex,1);
+        loadTable();
+        $("#itemDeleteModal").modal("hide");
+        resetForm()
+        $("#text").text("Successfully Deleted a customer")
+        $("#successModal").modal("show");
+    });
 
 
 
