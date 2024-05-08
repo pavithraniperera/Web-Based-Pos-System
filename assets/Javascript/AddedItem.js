@@ -21,6 +21,7 @@ $(document).ready(function (){
         let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc);
         itemArray.push(item);
         loadTable();
+        addItemCard(item)
         $("#text").text("Successfully added new customer")
         $("#successModal").modal("show");
         resetForm();
@@ -128,6 +129,43 @@ $(document).ready(function (){
         $("#text").text("Successfully Deleted a customer")
         $("#successModal").modal("show");
     });
+
+  function  addItemCard(item){
+      var name = item.name;
+      var imageUrl = "assets/images/brocoli.png";
+      var price = item.price
+      let newItemCard = `
+        <div class="card item-card">
+            <div class="image-custom">
+                <img src="${imageUrl}" class="card-img-top" alt="${name}">
+            </div>
+            <div class="card-body item-desc-custom">
+                <h5 class="card-title">${name}</h5>
+                <select class="form-select mb-2" aria-label="Select weight">
+                    <option value="1kg">1 kg</option>
+                    <option value="500g">500 g</option>
+                    <option value="250g">250 g</option>
+                </select>
+                <p class="card-text">Price: Rs.${price}</p>
+                <a class="btn btn-primary item-button" href="#" role="button">
+                    Add Item
+                </a>
+            </div>
+        </div>
+    `;
+
+      // Append the new item card to the items container
+      $(".items-container").append(newItemCard);
+
+      $("#itemContainer").show();
+  }
+
+    // Check if there are no item cards and hide the container
+    if ($(".items-container").children().length === 0) {
+
+        $("#itemContainer").hide();
+
+    }
 
 
 
