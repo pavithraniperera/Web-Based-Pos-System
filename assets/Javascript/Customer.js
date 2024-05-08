@@ -1,7 +1,7 @@
 import CustomerModel from "../../model/CustomerModel.js";
-
+import {customerArray} from "../../db/database.js";
 $(document).ready(function () {
-    var customerArray =[];
+
 
     $("#addCustomer").click(function () {
         var customerId = $("#id").val().trim();
