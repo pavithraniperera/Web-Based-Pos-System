@@ -1,16 +1,16 @@
-class OrderModal{
-    constructor(customerId, items, total) {
-        this._customerId = customerId;
+export default class OrderModal{
+    constructor(customer, items, total) {
+        this._customerId = customer;
         this._items = items;
         this._total = total;
     }
 
-    get customerId() {
-        return this._customerId;
+    get customer() {
+        return this._customer;
     }
 
-    set customerId(value) {
-        this._customerId = value;
+    set customer(value) {
+        this._customer = value;
     }
 
     get items() {
