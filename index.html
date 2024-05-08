@@ -448,7 +448,7 @@
                 </div>
                 <div class="total-price">Total: Rs.547.97</div>
 
-                <button class="btn btn-success btn-lg checkout-btn"  data-bs-toggle="modal" data-bs-target="#checkoutModal">
+                <button id="proceed" class="btn btn-success btn-lg checkout-btn"  data-bs-toggle="modal" data-bs-target="#checkoutModal">
                     <i class="fa-solid fa-cart-shopping" ></i> Proceed to Checkout
                 </button>
             </div>
@@ -466,7 +466,12 @@
                             <form id="customerDetailsForm">
                                 <div class="mb-3">
                                     <label for="customerId" class="form-label">Customer ID</label>
-                                    <input type="text" class="form-control" id="customerId" name="customerId" required>
+                                    <select class="form-select" id="customerId" name="customerId" required>
+                                        <option selected disabled value="">Select Customer ID</option>
+                                        <option value="1">Customer ID 1</option>
+                                        <option value="2">Customer ID 2</option>
+                                        <!-- Add more options as needed -->
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="custName" class="form-label">Name</label>
@@ -499,21 +504,21 @@
                             <ul class="list-group">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Subtotal
-                                    <span>Rs.847.97</span>
+                                    <span id="payTotal">Rs.847.97</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Discount
-                                    <span>-Rs.105.00</span>
+                                    <span id="discount">-Rs.105.00</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Total
-                                    <span>Rs.742.97</span>
+                                    <span id="payment">Rs.742.97</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Pay Now</button>
+                            <button id="pay" type="button" class="btn btn-success">Pay Now</button>
                         </div>
                     </div>
                 </div>
