@@ -1,6 +1,8 @@
 import AddedItemModal from "../../model/AddedItemModal.js";
 import {customerArray} from "../../db/database.js";
-
+import {proceedItems} from "../../db/database.js";
+import {orders} from "../../db/database.js";
+import OrderModal from "../../model/OrderModal.js";
 $(document).ready(function (){
     $(document).on("click", ".item-button", function () {
         console.log("clicked");
@@ -48,7 +50,7 @@ $(document).ready(function (){
 
 
         var totalPrice = 0;
-        var proceedItems =[];
+
 
         // Loop through each cart item to calculate total price and display item details
         cartItems.each(function(index, item) {
@@ -70,13 +72,44 @@ $(document).ready(function (){
         console.log("Total Price:", totalPrice);
         console.log(proceedItems);
         $("#payTotal").text(totalPrice);
+        setTotalAmount(totalPrice);
         setCustomerId();
     });
 
      $("#pay").click(function (){
+         var date = getCurrentTime();
+         var orderId =generateOrderId();
+         console.log(orderId);
+
+        let order = new OrderModal(selectedCustomer,proceedItems,discountedTotal,date,orderId);
+        orders.push(order);
+        console.log(orders);
+
 
 
      });
+    function getCurrentTime() {
+        return new Date(); // Get current date as a string
+    }
+    var orderNumber=1;
+    function generateOrderId() {
+        const orderId = 'O' + pad(orderNumber, 3); // Pad the order number with leading zeros like O001
+        orderNumber++; // Increment the order number for the next order
+        return orderId;
+    }
+    // Helper function to pad numbers with leading zeros to a specified length
+    function pad(number, length) {
+        return String(number).padStart(length, '0');
+    }
+     var discountedTotal;
+     function setTotalAmount(total){
+         console.log(total);
+         var discount = total * 0.15;
+          discountedTotal = total - (total * 0.15); // 15% discount
+         $("#discount").text(discount.toFixed(2));
+         $("#payment").text(discountedTotal.toFixed(2));
+
+     }
 
      function setCustomerId(){
          // Find the select element by its ID
@@ -108,10 +141,13 @@ $(document).ready(function (){
 
     const customerIdSelect = document.getElementById("customerId");
     const custNameInput = document.getElementById("custName");
+    var selectedCustomerId ;
+    var selectedCustomer;
+
 
     customerIdSelect.addEventListener("change", function() {
-        const selectedCustomerId = this.value; // Get customer iD
-        const selectedCustomer = customerArray.find(customer => customer.id === selectedCustomerId);
+         selectedCustomerId = this.value; // Get customer iD
+         selectedCustomer = customerArray.find(customer => customer.id === selectedCustomerId);
 
         if (selectedCustomer) {
             custNameInput.value = selectedCustomer.name;
@@ -120,5 +156,7 @@ $(document).ready(function (){
         }
 
     });
+
+
 
 });
