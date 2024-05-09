@@ -52,7 +52,7 @@ $(document).ready(function () {
                     <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
                 </td>
             </tr>
-        `; $(".table-custom tbody").append(newRow);
+        `; $("#customerTable").append(newRow);
         });
     }
 
