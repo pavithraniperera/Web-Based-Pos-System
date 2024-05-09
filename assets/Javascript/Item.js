@@ -84,10 +84,18 @@ $(document).ready(function (){
         let order = new OrderModal(selectedCustomer,proceedItems,discountedTotal,date,orderId);
         orders.push(order);
         console.log(orders);
-
+        loadOrderTable();
+         $("#checkoutModal").modal("hide");
+         $("#text").text("Order Successful");
+         $("#successModal").modal("show");
 
 
      });
+
+    $("#okBtn").click(function (){
+        $("#successModal").modal("hide");
+    });
+
     function getCurrentTime() {
         return new Date(); // Get current date as a string
     }
@@ -156,6 +164,26 @@ $(document).ready(function (){
         }
 
     });
+
+    function loadOrderTable(){
+        $("#orderTable").empty();
+        orders.map((item,index)=>{
+
+            var newRow = `
+             <tr>
+                <td class="id">${item.orderId}</td>
+                <td class="custId">${item.customer.id}</td>
+                <td class="total">${item.total}</td>
+                <td class="date">${item.date}</td>
+               
+                <td>
+                    <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                </td>
+            </tr>
+        `; $("#orderTable").append(newRow);
+        });
+    }
 
 
 
