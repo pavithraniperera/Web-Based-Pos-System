@@ -934,17 +934,17 @@
                 </div>
             </div>
 
-            <label for="orderItemList" class="form-label total-custom">Total : Rs.00.00</label>
+            <label  for="orderItemList" class="form-label total-custom">Total : Rs.<span id="orderTotal">00</span>.00</label>
 
             <!-- Buttons -->
             <div class="button-container">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <button id="deleteBtn" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     <i class="fa-solid fa-trash"></i> Delete
                 </button>
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
                     <i class="fa-solid fa-pen-to-square"></i> Edit
                 </button>
-                <button type="reset" class="btn btn-secondary">
+                <button id="clearFields" type="reset" class="btn btn-secondary">
                     <i class="fa-solid fa-broom"></i> Clear
                 </button>
 
@@ -979,6 +979,7 @@
                     <tr>
                         <th scope="col">Order Id</th>
                         <th scope="col">Customer Id</th>
+                        <th scope="col">Customer Name</th>
                         <th scope="col">Total</th>
                         <th scope="col">Date</th>
                         <th scope="col"></th>
@@ -1162,6 +1163,7 @@
 <script type="module" src="assets/Javascript/Item.js"></script>
 <script type="module" src="assets/Javascript/Customer.js"></script>
 <script type="module" src="assets/Javascript/AddedItem.js"></script>
+<script type="module" src="assets/Javascript/OrderHistory.js"></script>
 
 </body>
 </html>
