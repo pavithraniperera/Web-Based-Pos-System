@@ -47,8 +47,6 @@ $(document).ready(function (){
     $("#proceed").click(function() {
         // Get all cart items
         var cartItems = $(".cart-item");
-
-
         var totalPrice = 0;
 
 
@@ -89,7 +87,6 @@ $(document).ready(function (){
          $("#checkoutModal").modal("hide");
          $("#text").text("Order Successful");
          $("#successModal").modal("show");
-
 
      });
 
@@ -174,6 +171,7 @@ $(document).ready(function (){
              <tr>
                 <td class="id">${item.orderId}</td>
                 <td class="custId">${item.customer.id}</td>
+                <td class="custName">${item.customer.name}</td>
                 <td class="total">${item.total}</td>
                 <td class="date">${item.date}</td>
                
@@ -185,6 +183,15 @@ $(document).ready(function (){
         `; $("#orderTable").append(newRow);
         });
     }
+
+    $("#deleteBtn").click(function (){
+        orders.splice(recordIndex,1);
+        loadOrderTable();
+        $("#deleteModal").modal("hide");
+        clearFields();
+        $("#text").text("Successfully Deleted a Order")
+        $("#successModal").modal("show");
+    })
 
 
 
