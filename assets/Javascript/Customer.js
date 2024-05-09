@@ -21,7 +21,8 @@ $(document).ready(function () {
             id : customerId,
             name: customerName,
             contact : customerContact,
-            address: customerAddress,
+            address: customerAddress,$("#deleteBtn").click(function (){
+
             note:customerNote
 
         }*/
