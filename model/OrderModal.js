@@ -1,8 +1,11 @@
 export default class OrderModal{
-    constructor(customer, items, total) {
-        this._customerId = customer;
+
+    constructor(customer, items, total,date,orderId) {
+        this._customer = customer;
         this._items = items;
         this._total = total;
+        this._date = date;
+        this._orderId = orderId;
     }
 
     get customer() {
@@ -27,5 +30,20 @@ export default class OrderModal{
 
     set total(value) {
         this._total = value;
+    }
+    get date() {
+        return this._date;
+    }
+
+    set date(value) {
+        this._date = value;
+    }
+
+    get orderId() {
+        return this._orderId;
+    }
+
+    set orderId(value) {
+        this._orderId = value;
     }
 }
