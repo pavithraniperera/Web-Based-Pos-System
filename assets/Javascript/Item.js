@@ -76,6 +76,7 @@ $(document).ready(function (){
         setCustomerId();
     });
 
+
      $("#pay").click(function (){
          var date = getCurrentTime();
          var orderId =generateOrderId();
