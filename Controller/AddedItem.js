@@ -1,5 +1,5 @@
 
-import AddedItemModal from "../../model/AddedItemModal.js";
+import AddedItemModal from "../model/AddedItemModal.js";
 
 $(document).ready(function (){
      var itemArray = [];

@@ -1,9 +1,9 @@
-import AddedItemModal from "../../model/AddedItemModal.js";
-import {customerArray} from "../../db/database.js";
-import {proceedItems} from "../../db/database.js";
-import {orders} from "../../db/database.js";
-import OrderModal from "../../model/OrderModal.js";
-$(document).ready(function (){
+import AddedItemModal from "../model/AddedItemModal.js";
+import {customerArray} from "../db/database.js";
+import {proceedItems} from "../db/database.js";
+import {orders} from "../db/database.js";
+import OrderModal from "../model/OrderModal.js";
+ $(document).ready(function (){
     $(document).on("click", ".item-button", function () {
         console.log("clicked");
         var itemName = $(this).closest(".card-body").find(".card-title").text();
@@ -163,7 +163,9 @@ $(document).ready(function (){
 
     });
 
-    function loadOrderTable(){
+
+
+     function loadOrderTable(){
         $("#orderTable").empty();
         orders.map((item,index)=>{
 
@@ -184,14 +186,8 @@ $(document).ready(function (){
         });
     }
 
-    $("#deleteBtn").click(function (){
-        orders.splice(recordIndex,1);
-        loadOrderTable();
-        $("#deleteModal").modal("hide");
-        clearFields();
-        $("#text").text("Successfully Deleted a Order")
-        $("#successModal").modal("show");
-    })
+
+
 
 
 

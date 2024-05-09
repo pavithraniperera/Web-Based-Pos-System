@@ -1,5 +1,5 @@
-import CustomerModel from "../../model/CustomerModel.js";
-import {customerArray} from "../../db/database.js";
+import CustomerModel from "../model/CustomerModel.js";
+import {customerArray} from "../db/database.js";
 $(document).ready(function () {
 
 

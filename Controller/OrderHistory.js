@@ -1,5 +1,5 @@
-import {customerArray, orders, proceedItems} from "../../db/database.js";
-
+import {customerArray, orders, proceedItems} from "../db/database.js";
+/*import { loadOrderTable } from './Item.js'*/
 var recordIndex;
 
 
@@ -62,3 +62,11 @@ function clearFields() {
     // Clear orderItemListTable
     $("#orderItemList").empty();
 }
+$("#deleteBtn").click(function (){
+    orders.splice(recordIndex,1);
+    /*loadOrderTable();*/
+    $("#deleteModal").modal("hide");
+    clearFields();
+    $("#text").text("Successfully Deleted a Order")
+    $("#successModal").modal("show");
+})
