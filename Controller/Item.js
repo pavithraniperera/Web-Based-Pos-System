@@ -3,6 +3,11 @@ import {customerArray} from "../db/database.js";
 import {proceedItems} from "../db/database.js";
 import {orders} from "../db/database.js";
 import OrderModal from "../model/OrderModal.js";
+import {itemArray} from "../db/database.js";
+import {AddedItemModule} from "./AddedItem.js";
+
+
+
  $(document).ready(function (){
     $(document).on("click", ".item-button", function () {
         console.log("clicked");
@@ -75,6 +80,7 @@ import OrderModal from "../model/OrderModal.js";
     });
 
 
+
      $("#pay").click(function (){
          var date = getCurrentTime();
          var orderId =generateOrderId();
@@ -83,6 +89,7 @@ import OrderModal from "../model/OrderModal.js";
         let order = new OrderModal(selectedCustomer,proceedItems,discountedTotal,date,orderId);
         orders.push(order);
         console.log(orders);
+         updateStockItem();
         loadOrderTable();
          $("#checkoutModal").modal("hide");
          $("#text").text("Order Successful");
@@ -187,6 +194,18 @@ import OrderModal from "../model/OrderModal.js";
     }
 
 
+    function  updateStockItem(){
+        proceedItems.forEach(proceedItem => {
+            const stockItem = itemArray.find(item => item.id === proceedItem.id);
+            if (stockItem) {
+                stockItem.quantity -= proceedItem.quantity;
+                console.log(stockItem.quantity)
+            }
+        });
+
+
+        console.log(itemArray);
+    }
 
 
 
