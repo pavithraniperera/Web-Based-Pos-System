@@ -10,22 +10,25 @@ $(document).ready(function () {
         var customerAddress = $("#Address").val().trim();
         var customerNote = $("#Note").val().trim();
 
+        //check if all the input fields are filled
         if (!customerId || !customerName || !customerContact || !customerAddress || !customerNote) {
             alert("Please fill in all fields.");
+            return;
+        }
+        // Check if customer name contains numbers
+        if (/\d/.test(customerName)) {
+            alert("Customer name cannot contain numbers.");
+            return;
+        }
+
+        // Check contact format (e.g., 10-digit number)
+        if (!/^\d{10}$/.test(customerContact)) {
+            alert("Invalid contact number format. Please enter a 10-digit number.");
             return;
         }
 
         let customer = new CustomerModel(customerId,customerName,customerContact,customerAddress,customerNote);
 
-      /*  var customer = {
-            id : customerId,
-            name: customerName,
-            contact : customerContact,
-            address: customerAddress,$("#deleteBtn").click(function (){
-
-            note:customerNote
-
-        }*/
         customerArray.push(customer);
         loadTable();
         $("#text").text("Successfully added new customer")
