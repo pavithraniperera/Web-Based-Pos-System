@@ -1,8 +1,9 @@
 
 import AddedItemModal from "../model/AddedItemModal.js";
+import {itemArray} from "../db/database.js";
 
 $(document).ready(function (){
-     var itemArray = [];
+
 
     $("#addNewItem").click(function (){
         var itemName = $("#itemName").val().trim();
@@ -29,7 +30,10 @@ $(document).ready(function (){
 
     });
 
-    function loadTable(){
+
+
+
+     function loadTable(){
         $("#itemTable").empty();
         itemArray.map((item,index)=>{
 
