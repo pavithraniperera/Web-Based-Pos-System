@@ -19,6 +19,20 @@ $(document).ready(function (){
             return;
         }
 
+        // Validate itemPrice as a valid number
+        if (isNaN(itemPrice) || parseFloat(itemPrice) <= 0) {
+            alert("Please enter a valid item price.");
+            return;
+        }
+
+        // Validate itemQuantity as a valid number
+        if (isNaN(itemQuantity) || parseInt(itemQuantity) <= 0) {
+            alert("Please enter a valid item quantity.");
+            return;
+        }
+
+
+
         let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc);
         itemArray.push(item);
         loadTable();
