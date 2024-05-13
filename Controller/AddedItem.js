@@ -174,8 +174,9 @@ $(document).ready(function (){
 
       // Append the new item card to the items container
       $(".items-container").append(newItemCard);
-
+      $("#itemNoData").hide()
       $("#itemContainer").show();
+
   }
 
     // Check if there are no item cards and hide the container
