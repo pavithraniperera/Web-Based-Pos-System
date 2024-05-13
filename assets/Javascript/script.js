@@ -80,14 +80,7 @@
         })
     });
 
-    $("#nav-login").click(function (){
-        $("#login").css(css1)
-        $("#dashboard").css(css2);
-        handleNavClick("nav-home");
-        $("body").css({
-            paddingTop:150
-        })
-    });
+
 
     $("#logOut").click(function (){
         $("#dashboard").css(css1);
@@ -97,7 +90,36 @@
         })
     })
 
+    $(document).ready(function () {
+        // Add event listener to the form for form submission
+        $("#signIn").click(function (){
+            const usernameValue = $('#usernameModal').val().trim();
+            if (!usernameValue) {
+                alert('Please enter your username.');
+                return;
+            }
 
+            // Validate password
+            const passwordValue = $('#passwordModal').val().trim();
+            if (!passwordValue) {
+                alert('Please enter your password.');
+                return;
+            }
+            $("#nav-login").click(function (){
+                $("#login").css(css1)
+                $("#dashboard").css(css2);
+                handleNavClick("nav-home");
+                $("body").css({
+                    paddingTop:150
+                })
+            });
+            $("#text").text("Login Successful")
+            $("#successModal").modal("show");
+
+
+        });
+
+    });
 
 
 
