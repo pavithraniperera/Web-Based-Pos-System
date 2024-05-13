@@ -162,6 +162,13 @@ body{
     .table-section{
         top: 1350px;
     }
+    .table-custom th{
+        font-size: 20px;
+    }
+
+    .table-custom td{
+        font-size: 18px;
+    }
 
 }
 
