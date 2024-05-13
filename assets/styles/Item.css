@@ -73,7 +73,9 @@ section{
 }
 .item-container{
     position: absolute;
-    top: 15vw
+    top: 15vw;
+    height: fit-content;
+
 }
 .items-container {
     position: absolute;
@@ -93,6 +95,10 @@ section{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     width: 15vw;
     height: 40vh;
+    transition: transform 0.3s ease;
+}
+.item-card:hover {
+    transform: scale(1.05);
 }
 .item-desc-custom{
     position: absolute;
@@ -106,6 +112,12 @@ section{
     border: #2199A6 solid;
     font-family: Inter, serif;
     color: #025159;
+}
+#itemNoData{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    left: 200px;
 }
 
 .item-desc-custom h5{
