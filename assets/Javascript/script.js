@@ -1,5 +1,6 @@
+import {users} from "../../db/database.js";
 
-    var css1 = {
+var css1 = {
     display:"none"
 }
     var css2 ={
@@ -103,6 +104,20 @@
             const passwordValue = $('#passwordModal').val().trim();
             if (!passwordValue) {
                 alert('Please enter your password.');
+                return;
+            }
+            // Find user by username
+            const foundUser = users.find(user => user.userName === usernameValue);
+
+            // Validate username
+            if (!usernameValue || !foundUser) {
+                alert('Invalid username.');
+                return;
+            }
+
+            // Validate password
+            if (foundUser.password !== passwordValue) {
+                alert('Incorrect password.');
                 return;
             }
             $("#nav-login").click(function (){
