@@ -4,7 +4,7 @@ import {proceedItems} from "../db/database.js";
 import {orders} from "../db/database.js";
 import OrderModal from "../model/OrderModal.js";
 import {itemArray} from "../db/database.js";
-import {AddedItemModule} from "./AddedItem.js";
+
 
 
 
