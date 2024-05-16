@@ -4,7 +4,7 @@ import {proceedItems} from "../db/database.js";
 import {orders} from "../db/database.js";
 import OrderModal from "../model/OrderModal.js";
 import {itemArray} from "../db/database.js";
-
+import {loadTable} from "./AddedItem.js"
 
 
 
@@ -22,7 +22,9 @@ import {itemArray} from "../db/database.js";
             <img src="${itemImageSrc}" alt="Item Image" class="item-image">
             <span class="item-name">${itemName}</span>
             <input type="number" class="form-control quantity-input" value="1" min="1">
+             <button id="cartDelete" class="delete-item-button"><i class="fas fa-trash"></i></button>
             <span class="item-price">Rs. ${itemPrice.toFixed(2)}</span>
+           
         </div>
     `;
         $(".shopping-cart").append(newItem);
@@ -90,6 +92,7 @@ import {itemArray} from "../db/database.js";
         orders.push(order);
         console.log(orders);
          updateStockItem();
+         loadTable();
         loadOrderTable();
          $("#checkoutModal").modal("hide");
          $("#text").text("Order Successful");
@@ -193,6 +196,18 @@ import {itemArray} from "../db/database.js";
         });
     }
 
+   /*  $(document).on('click', '.delete-item-button', function() {
+         var itemId = $(this).closest('.cart-item').data('id');
+
+         // Remove item from proceedItem array
+         proceedItems = proceedItems.filter(item => item.id !== itemId);
+
+         // Remove item from DOM
+         $(this).closest('.cart-item').remove();
+
+         updateTotalPrice();
+     });
+*/
 
     function  updateStockItem(){
         proceedItems.forEach(proceedItem => {
@@ -206,6 +221,8 @@ import {itemArray} from "../db/database.js";
 
         console.log(itemArray);
     }
+
+
 
 
 
