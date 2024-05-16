@@ -2,6 +2,27 @@
 import AddedItemModal from "../model/AddedItemModal.js";
 import {itemArray} from "../db/database.js";
 
+export function loadTable(){
+    $("#itemTable").empty();
+    itemArray.map((item,index)=>{
+
+        var newRow = `
+             <tr>
+                <td class="name">${item.name}</td>
+                <td class="cost">${item.price}</td>
+                <td class="quantity">${item.quantity}</td>
+                <td class="category">${item.category}</td>
+                <td class="description">${item.description}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                </td>
+            </tr>
+        `; $(".table-custom tbody").append(newRow);
+    });
+}
+
+
 $(document).ready(function (){
 
 
@@ -47,25 +68,7 @@ $(document).ready(function (){
 
 
 
-     function loadTable(){
-        $("#itemTable").empty();
-        itemArray.map((item,index)=>{
 
-            var newRow = `
-             <tr>
-                <td class="name">${item.name}</td>
-                <td class="cost">${item.price}</td>
-                <td class="quantity">${item.quantity}</td>
-                <td class="category">${item.category}</td>
-                <td class="description">${item.description}</td>
-                <td>
-                    <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                    <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
-                </td>
-            </tr>
-        `; $(".table-custom tbody").append(newRow);
-        });
-    }
 
     var recordIndex;
     var editItem;
