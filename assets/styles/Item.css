@@ -181,6 +181,18 @@ section{
 .cart-item:last-child {
     border-bottom: none;
 }
+.delete-item-button {
+    position: relative;
+    top: -30px;
+    left: 69px;
+    background: none;
+    border: none;
+    color: #F25C05;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
 
 .item-name {
 
