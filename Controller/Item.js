@@ -196,18 +196,7 @@ import {loadTable} from "./AddedItem.js"
         });
     }
 
-   /*  $(document).on('click', '.delete-item-button', function() {
-         var itemId = $(this).closest('.cart-item').data('id');
 
-         // Remove item from proceedItem array
-         proceedItems = proceedItems.filter(item => item.id !== itemId);
-
-         // Remove item from DOM
-         $(this).closest('.cart-item').remove();
-
-         updateTotalPrice();
-     });
-*/
 
     function  updateStockItem(){
         proceedItems.forEach(proceedItem => {
@@ -222,9 +211,20 @@ import {loadTable} from "./AddedItem.js"
         console.log(itemArray);
     }
 
+      //delete function
+     $(document).on('click', '.delete-item-button', function () {
+         // Get the parent cart-item div
+         let cartItemDiv = $(this).closest('.cart-item');
+
+         // Remove the item
+         cartItemDiv.remove();
+
+         updateTotalPrice();
+     });
 
 
 
 
 
-});
+
+ });
