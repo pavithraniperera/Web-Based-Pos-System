@@ -16,6 +16,8 @@ import {loadTable} from "./AddedItem.js"
         var itemWeight = $(this).closest(".item-card").find(".form-select").val();
         var itemPriceText = $(this).closest(".item-card").find(".card-text").text();
         var itemPrice = parseFloat(itemPriceText.replace("Price: Rs.", ""));
+        var item = itemArray.find(item=>item.name===itemName);
+        var maxQuantity = item.quantity;
 
         //check if the item is already in the shopping cart
         let itemExist =false;
@@ -33,16 +35,22 @@ import {loadTable} from "./AddedItem.js"
 
             showAlert(`This Item is already in your cart .  Increased quantity of ${itemName}.`);
         }else {
+            //check item availability
+            if (maxQuantity<=0){
+                 showAlert("Item out of stock.");
+                return;
+            }
+
+
             var newItem = `
-        <div class="cart-item">
-            <img src="${itemImageSrc}" alt="Item Image" class="item-image">
-            <span class="item-name">${itemName}</span>
-            <input type="number" class="form-control quantity-input" value="1" min="1">
-             <button id="cartDelete" class="delete-item-button"><i class="fas fa-trash"></i></button>
-            <span class="item-price">Rs. ${itemPrice.toFixed(2)}</span>
-           
-        </div>
-    `;
+    <div class="cart-item">
+        <img src="${itemImageSrc}" alt="Item Image" class="item-image">
+        <span class="item-name">${itemName}</span>
+        <input type="number" class="form-control quantity-input" value="1" min="1" max="${maxQuantity}">
+        <button id="cartDelete" class="delete-item-button"><i class="fas fa-trash"></i></button>
+        <span class="item-price">Rs. ${itemPrice.toFixed(2)}</span>
+    </div>
+`;
             $(".shopping-cart").append(newItem);
             updateTotalPrice();
         }
@@ -76,11 +84,20 @@ import {loadTable} from "./AddedItem.js"
         $(".total-price").text("Total: Rs." + totalPrice.toFixed(2));
     }
     $(document).on("change", ".quantity-input", function() {
+
+        var quantity = $(this).val();
+        var maxQuantity = $(this).attr(`max`);
+        /*if (parseInt(quantity) > parseInt(maxQuantity)) {
+            $(this).val(maxQuantity);
+            showAlert("Cannot exceed available stock quantity.");
+        }*/
         updateTotalPrice();
     });
 
     $(".checkout-btn").on("click", function() {
         alert("Proceeding to checkout. Total amount: " + $(".total-price").text());
+
+
     });
 
     $("#proceed").click(function() {
