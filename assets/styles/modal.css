@@ -154,3 +154,18 @@
 #errorModal .modal-footer .btn-danger:hover {
     background-color: #c82333;
 }
+
+/*notification style*/
+
+#notificationAlert {
+    position: fixed;
+    top: 11rem;
+    right: 10rem;
+    z-index: 1050;
+    display: none;
+}
+
+#alertMessage{
+    font-size: 20px;
+    color: #c82333;
+}
