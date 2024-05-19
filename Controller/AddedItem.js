@@ -34,23 +34,44 @@ $(document).ready(function (){
         var itemCategory = Category.options[Category.selectedIndex].text;
         var itemDesc = $("#itemDescription").val().trim();
 
-        // Validate form data
-        if (!itemName || !itemPrice || !itemQuantity || itemCategory == "Select category...") {
-            alert("Please fill in all fields.");
+        //validate item name
+        if (!itemName) {
+            $("#errorText").text("Item name is required.")
+            $("#errorModal").modal("show");
+            return;
+        }
+
+        //validate item category
+        if (itemCategory == "Select category...") {
+            $("#errorText").text("Please select a valid category.")
+            $("#errorModal").modal("show");
             return;
         }
 
         // Validate itemPrice as a valid number
-        if (isNaN(itemPrice) || parseFloat(itemPrice) <= 0) {
-            alert("Please enter a valid item price.");
+        if (!itemPrice) {
+            $("#errorText").text("Item price is required.")
+            $("#errorModal").modal("show");
+            return;
+        } else if (isNaN(itemPrice) || parseFloat(itemPrice) <= 0) {
+            $("#errorText").text("Please enter a valid item price.")
+            $("#errorModal").modal("show");
             return;
         }
 
         // Validate itemQuantity as a valid number
-        if (isNaN(itemQuantity) || parseInt(itemQuantity) <= 0) {
-            alert("Please enter a valid item quantity.");
+        if (!itemQuantity) {
+
+            $("#errorText").text("Item quantity is required.")
+            $("#errorModal").modal("show");
+            return;
+        } else if (isNaN(itemQuantity) || parseInt(itemQuantity) <= 0) {
+            $("#errorText").text("Please enter a valid item quantity.");
+            $("#errorModal").modal("show");
             return;
         }
+
+
 
 
 
@@ -132,6 +153,11 @@ $(document).ready(function (){
     $("#okBtn").click(function (){
         $("#successModal").modal("hide");
     });
+
+    $("#errorOkBtn").click(function (){
+        $("#errorModal").modal("hide");
+    });
+
 
     function resetForm() {
         $(".info-section input, .info-section textarea").val(""); // Set value to empty string for input and textarea elements
