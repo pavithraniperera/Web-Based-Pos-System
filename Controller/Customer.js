@@ -15,15 +15,45 @@ $(document).ready(function () {
             alert("Please fill in all fields.");
             return;
         }
+
+        //check customer id
+        if (!customerId){
+            $("#errorText").text("Customer ID is required")
+            $("#errorModal").modal("show");
+            return;
+        } else if (!/^C\d{3}$/.test(customerId)) {
+            $("#errorText").text("Customer ID must be in the format 'C001'.")
+            $("#errorModal").modal("show");
+            return;
+        }
         // Check if customer name contains numbers
+        if (!customerName){
+            $("#errorText").text("Customer name is required")
+            $("#errorModal").modal("show");
+            return;
+        }
         if (/\d/.test(customerName)) {
-            alert("Customer name cannot contain numbers.");
+            $("#errorText").text("Customer name cannot contain numbers.")
+            $("#errorModal").modal("show");
+            return;
+        }
+
+        //check customer Address
+        if (!customerAddress){
+            $("#errorText").text("Customer address is required");
+            $("#errorModal").modal("show");
             return;
         }
 
         // Check contact format (e.g., 10-digit number)
-        if (!/^\d{10}$/.test(customerContact)) {
-            alert("Invalid contact number format. Please enter a 10-digit number.");
+        if ( !customerContact){
+            $("#errorText").text("Customer contact is required")
+            $("#errorModal").modal("show");
+            return;
+        }
+       else if (!/^\d{10}$/.test(customerContact)) {
+            $("#errorText").text("Invalid contact number format. Please enter a 10-digit number.")
+            $("#errorModal").modal("show");
             return;
         }
 
