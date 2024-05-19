@@ -17,7 +17,23 @@ import {loadTable} from "./AddedItem.js"
         var itemPriceText = $(this).closest(".item-card").find(".card-text").text();
         var itemPrice = parseFloat(itemPriceText.replace("Price: Rs.", ""));
 
-        var newItem = `
+        //check if the item is already in the shopping cart
+        let itemExist =false;
+        $(".cart-item").each(function (){
+            var existingItemName =$(this).find(".item-name").text();
+            console.log(existingItemName);
+
+            if (existingItemName===itemName){
+                itemExist = true;
+                return false;
+            }
+        });
+        console.log(itemExist)
+        if (itemExist){
+
+            showAlert(`This Item is already in your cart .  Increased quantity of ${itemName}.`);
+        }else {
+            var newItem = `
         <div class="cart-item">
             <img src="${itemImageSrc}" alt="Item Image" class="item-image">
             <span class="item-name">${itemName}</span>
@@ -27,11 +43,27 @@ import {loadTable} from "./AddedItem.js"
            
         </div>
     `;
-        $(".shopping-cart").append(newItem);
+            $(".shopping-cart").append(newItem);
+            updateTotalPrice();
+        }
 
-        updateTotalPrice();
+
     });
 
+     function showAlert(message) {
+         $("#alertMessage").text(message);
+         var alertElement = $("#notificationAlert");
+
+         alertElement.show();
+
+         // Auto-hide after 5 seconds (5000 milliseconds)
+         setTimeout(function() {
+             alertElement.addClass('hide').removeClass('show');
+             setTimeout(function() {
+                 alertElement.hide();
+             }, 300);
+         }, 5000);
+     }
     function updateTotalPrice(){
         var totalPrice =0;
         $(".cart-item").each(function() {
@@ -131,20 +163,20 @@ import {loadTable} from "./AddedItem.js"
          // Find the select element by its ID
          const customerIdSelect = document.getElementById("customerId");
 
-// Clear any existing options
+        // Clear any existing options
          customerIdSelect.innerHTML = "";
 
-// Create a default option
+        // Create a default option
          const defaultOption = document.createElement("option");
          defaultOption.value = "";
          defaultOption.textContent = "Select Customer ID";
          defaultOption.disabled = true;
          defaultOption.selected = true;
 
-// Append the default option to the select element
+         // Append the default option to the select element
          customerIdSelect.appendChild(defaultOption);
 
-// Loop through the customerArray and create an option for each customer
+         // Loop through the customerArray and create an option for each customer
          customerArray.forEach(customer => {
              const option = document.createElement("option");
 
@@ -218,6 +250,7 @@ import {loadTable} from "./AddedItem.js"
 
          // Remove the item
          cartItemDiv.remove();
+         showAlert("Item is Removed" );
 
          updateTotalPrice();
      });
