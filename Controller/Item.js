@@ -95,14 +95,24 @@ import {loadTable} from "./AddedItem.js"
     });
 
     $(".checkout-btn").on("click", function() {
-        alert("Proceeding to checkout. Total amount: " + $(".total-price").text());
+
+
 
     });
 
     $("#proceed").click(function() {
+
+        //check there are at least one item in the cart
+        if ($(".cart-item").length === 0) {
+            alert("Your shopping cart is empty. Please add items to the cart before proceeding to checkout.");
+            $("#checkoutModal").modal("hide");
+            return;
+        }
+        alert("Proceeding to checkout. Total amount: " + $(".total-price").text());
         // Get all cart items
         var cartItems = $(".cart-item");
         var totalPrice = 0;
+        $("#checkoutModal").modal("show")
 
 
         // Loop through each cart item to calculate total price and display item details
