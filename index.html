@@ -725,9 +725,9 @@
     <section id="orderSection">
         <section>
             <div class="search-bar-custom">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline search-button-custom" type="submit">Search</button>
+                <form id="orderSearch" class="d-flex" role="search">
+                    <input id="searchCustomerId" class="form-control me-2 search-bar-custom-style" type="search" placeholder="Search" aria-label="Search">
+                    <button  id="searchButton" class="btn btn-outline search-button-custom" type="button">Search</button>
                 </form>
             </div>
             <div class="container">
@@ -996,6 +996,38 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+    <!-- Filtered Orders Modal -->
+    <div class="modal fade" id="filteredOrdersModal" tabindex="-1" aria-labelledby="filteredOrdersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filteredOrdersModalLabel">Customer Orders</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-custom">
+                        <thead>
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody id="filteredOrdersTable">
+                        <!-- Filtered orders will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
