@@ -70,3 +70,46 @@ $("#deleteBtn").click(function (){
     $("#text").text("Successfully Deleted a Order")
     $("#successModal").modal("show");
 })
+
+function displayFilteredOrders(filteredOrders) {
+    $("#filteredOrdersTable").empty();
+    filteredOrders.forEach(order => {
+        var newRow = `
+            <tr>
+                <td>${order.orderId}</td>
+                <td>${order.customer.id}</td>
+                <td>${order.customer.name}</td>
+                <td>${order.total}</td>
+                <td>${order.date}</td>
+            </tr>
+        `;
+        $("#filteredOrdersTable").append(newRow);
+    });
+
+    $("#filteredOrdersModal").modal("show");
+
+}
+
+function searchOrders(customerId) {
+
+    let filteredOrders = orders.filter(order => order.customer.id === customerId);
+    if (filteredOrders.length === 0) {
+        alert("No orders found for the given customer ID.");
+        return
+    }
+    displayFilteredOrders(filteredOrders);
+
+}
+
+$("#searchButton").click( function (e) {
+    var customerId = $("#searchCustomerId").val().trim();
+
+    if (!customerId) {
+        alert("Please enter a customer ID to search.");
+        return;
+    }
+
+    searchOrders(customerId);
+
+});
+
