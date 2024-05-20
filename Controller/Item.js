@@ -87,16 +87,15 @@ import {loadTable} from "./AddedItem.js"
 
         var quantity = $(this).val();
         var maxQuantity = $(this).attr(`max`);
-        /*if (parseInt(quantity) > parseInt(maxQuantity)) {
+        if (parseInt(quantity) === parseInt(maxQuantity)) {
             $(this).val(maxQuantity);
-            showAlert("Cannot exceed available stock quantity.");
-        }*/
+            showAlert("Cannot exceed available stock quantity in this item.");
+        }
         updateTotalPrice();
     });
 
     $(".checkout-btn").on("click", function() {
         alert("Proceeding to checkout. Total amount: " + $(".total-price").text());
-
 
     });
 
