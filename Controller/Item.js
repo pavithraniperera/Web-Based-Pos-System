@@ -145,13 +145,25 @@ import {loadTable} from "./AddedItem.js"
          var date = getCurrentTime();
          var orderId =generateOrderId();
          console.log(orderId);
+         // Create a  copy of proceedItems
+         let itemsCopy = proceedItems.map(item => {
+             return {
+                 name: item.name,
+                 price: item.price,
+                 quantity: item.quantity,
+             };
+         });
 
-        let order = new OrderModal(selectedCustomer,proceedItems,discountedTotal,date,orderId);
+        let order = new OrderModal(selectedCustomer,itemsCopy,discountedTotal,date,orderId);
         orders.push(order);
         console.log(orders);
          updateStockItem();
          loadTable();
         loadOrderTable();
+         // Clear proceedItems for the next order
+         proceedItems.length = 0;
+         // Clear cart UI
+         clearCart();
          $("#checkoutModal").modal("hide");
          $("#text").text("Order Successful");
          $("#successModal").modal("show");
@@ -161,6 +173,11 @@ import {loadTable} from "./AddedItem.js"
     $("#okBtn").click(function (){
         $("#successModal").modal("hide");
     });
+
+     function clearCart() {
+         $(".cart-item").remove();
+         // Or clear specific elements that represent the cart items
+     }
 
     function getCurrentTime() {
         return new Date(); // Get current date as a string
