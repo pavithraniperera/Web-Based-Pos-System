@@ -155,8 +155,22 @@ $(document).ready(function () {
         $("#successModal").modal("show");
     });
 
-    //search customer
-    $("#customerSearch").click( function (e) {
+    //---search customer---
+
+    // Trigger search on button click
+    $("#customerSearch").click(function(e) {
+        performSearch();
+    });
+
+    // Trigger search on Enter key press
+    $("#customerInput").keypress(function(e) {
+        if (e.which === 13) { // Enter key is pressed
+            e.preventDefault(); // Prevent form refresh
+            performSearch();
+        }
+    });
+
+    function performSearch() {
         var customerId = $("#customerInput").val().trim();
 
         if (!customerId) {
@@ -165,8 +179,7 @@ $(document).ready(function () {
             return;
         }
         searchCustomer(customerId);
-
-    });
+    }
 
     function searchCustomer(customerId) {
         let filterCustomer = customerArray.filter(customer => customer.id === customerId);
