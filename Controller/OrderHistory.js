@@ -16,6 +16,7 @@ $("#orderTable").on("click","tr",function (){
     $("#orderDate").val(date);
     $("#orderTotal").text(total);
     let proceedItemsArray = getProceedItemsArray(orderId);
+    console.log(proceedItemsArray);
     loadTable(proceedItemsArray);
 
 
@@ -67,7 +68,7 @@ $("#deleteBtn").click(function (){
     /*loadOrderTable();*/
     $("#deleteModal").modal("hide");
     clearFields();
-    $("#text").text("Successfully Deleted a Order")
+    $("#text").text("Successfully Deleted a Order");
     $("#successModal").modal("show");
 })
 
@@ -76,11 +77,11 @@ function displayFilteredOrders(filteredOrders) {
     filteredOrders.forEach(order => {
         var newRow = `
             <tr>
-                <td>${order.orderId}</td>
-                <td>${order.customer.id}</td>
-                <td>${order.customer.name}</td>
-                <td>${order.total}</td>
-                <td>${order.date}</td>
+                <td class="orderId">${order.orderId}</td>
+                <td class="custId">${order.customer.id}</td>
+                <td class="CustName">${order.customer.name}</td>
+                <td class="total">${order.total}</td>
+                <td class="date">${order.date.toLocaleString()}</td>
             </tr>
         `;
         $("#filteredOrdersTable").append(newRow);
@@ -89,12 +90,31 @@ function displayFilteredOrders(filteredOrders) {
     $("#filteredOrdersModal").modal("show");
 
 }
+var orderTableIndex;
+$("#filteredOrdersTable").on("click","tr",function (){
+    let index = $(this).index();
+    orderTableIndex = index;
+    let orderId = $(this).find(".orderId").text();
+    let custId = $(this).find(".custId").text();
+    let total = $(this).find(".total").text();
+    let date = $(this).find(".date").text();
+    let name = $(this).find(".custName").text();
+    $("#customerName").val(name);
+    $("#orderId").val(orderId);
+    $("#orderDate").val(date);
+    $("#orderTotal").text(total);
+    let proceedItemsArray = getProceedItemsArray(orderId);
+    loadTable(proceedItemsArray);
+    
+})
+
 
 function searchOrders(customerId) {
 
     let filteredOrders = orders.filter(order => order.customer.id === customerId);
     if (filteredOrders.length === 0) {
-        alert("No orders found for the given customer ID.");
+        $("#errorText").text("No orders found for the given customer ID.")
+        $("#errorModal").modal("show");
         return
     }
     displayFilteredOrders(filteredOrders);
@@ -105,10 +125,10 @@ $("#searchButton").click( function (e) {
     var customerId = $("#searchCustomerId").val().trim();
 
     if (!customerId) {
-        alert("Please enter a customer ID to search.");
+        $("#errorText").text("Please enter a customer ID to search.");
+        $("#errorModal").modal("show");
         return;
     }
-
     searchOrders(customerId);
 
 });
