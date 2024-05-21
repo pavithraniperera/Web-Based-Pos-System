@@ -1,6 +1,6 @@
 
 import AddedItemModal from "../model/AddedItemModal.js";
-import {itemArray} from "../db/database.js";
+import {customerArray, itemArray} from "../db/database.js";
 
 export function loadTable(){
     $("#itemTable").empty();
@@ -214,6 +214,67 @@ $(document).ready(function (){
         $("#itemContainer").hide();
 
     }
+
+    //Item Search
+
+    $("#searchItem").click(function(e) {
+        performSearch();
+    });
+
+    // Trigger search on Enter key press
+    $("#itemInput").keypress(function(e) {
+        if (e.which === 13) { // Enter key is pressed
+            e.preventDefault(); // Prevent form refresh
+            performSearch();
+        }
+    });
+
+    function performSearch() {
+        var itemName = $("#itemInput").val().trim();
+
+        if (!itemName) {
+            $("#errorText").text("Please enter a customer ID to search.");
+            $("#errorModal").modal("show");
+            return;
+        }
+        searchItem(itemName);
+    }
+
+    function searchItem(itemName) {
+        let filterItem = itemArray.filter(item => item.name === itemName);
+        if (filterItem.length === 0) {
+            $("#errorText").text("No Customer Data found for the given customer ID.")
+            $("#errorModal").modal("show");
+            return
+        }
+
+        displayFilteredItem(filterItem);
+
+    }
+
+    function displayFilteredItem(filterItem) {
+        filterItem.forEach(item=>{
+            $("#itemName").val(item.name);
+            $("#itemPrice").val(item.price);
+            $("#itemQuantity").val(item.quantity);
+            $("#itemDescription").val(item.description);
+            $("#itemCategory").empty();
+
+            // Add new options
+            let categories = ["Category 1", "Category 2", "Category 3"]; // Example categories
+            categories.forEach((cat) => {
+                let option = $("<option></option>").attr("value", cat).text(cat);
+                if (cat === item.category) {
+                    option.attr("selected", true); // Select the matching category
+                }
+                $("#itemCategory").append(option);
+            });
+        });
+
+    }
+
+
+
 
 
 
