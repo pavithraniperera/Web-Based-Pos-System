@@ -1,5 +1,8 @@
 import CustomerModel from "../model/CustomerModel.js";
-import {customerArray} from "../db/database.js";
+import {customerArray, orders} from "../db/database.js";
+
+
+
 $(document).ready(function () {
 
 
@@ -150,7 +153,44 @@ $(document).ready(function () {
         resetInputFields();
         $("#text").text("Successfully Deleted a customer")
         $("#successModal").modal("show");
-    })
+    });
+
+    //search customer
+    $("#customerSearch").click( function (e) {
+        var customerId = $("#customerInput").val().trim();
+
+        if (!customerId) {
+            $("#errorText").text("Please enter a customer ID to search.");
+            $("#errorModal").modal("show");
+            return;
+        }
+        searchCustomer(customerId);
+
+    });
+
+    function searchCustomer(customerId) {
+        let filterCustomer = customerArray.filter(customer => customer.id === customerId);
+        if (filterCustomer.length === 0) {
+            $("#errorText").text("No Customer Data found for the given customer ID.")
+            $("#errorModal").modal("show");
+            return
+        }
+
+        displayFilteredCustomer(filterCustomer);
+
+    }
+
+    function displayFilteredCustomer(filterCustomer) {
+         filterCustomer.forEach(customer=>{
+             $("#id").val(customer.id);
+             $("#fName").val(customer.name);
+             $("#Contact").val(customer.contact);
+             $("#Address").val(customer.address);
+             $("#Note").val(customer.note);
+         })
+
+    }
+
 
 
 
