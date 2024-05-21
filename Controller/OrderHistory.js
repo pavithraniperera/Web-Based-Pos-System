@@ -122,6 +122,17 @@ function searchOrders(customerId) {
 }
 
 $("#searchButton").click( function (e) {
+    performSearch();
+
+});
+$("#searchCustomerId").keypress(function(e) {
+    if (e.which === 13) { // Enter key is pressed
+        e.preventDefault(); // Prevent form refresh
+        performSearch();
+    }
+});
+
+function performSearch() {
     var customerId = $("#searchCustomerId").val().trim();
 
     if (!customerId) {
@@ -130,6 +141,5 @@ $("#searchButton").click( function (e) {
         return;
     }
     searchOrders(customerId);
-
-});
+}
 
