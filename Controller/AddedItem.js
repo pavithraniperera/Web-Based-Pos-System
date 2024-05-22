@@ -111,7 +111,7 @@ $(document).ready(function (){
         $("#itemCategory").empty();
 
         // Add new options
-        let categories = ["Category 1", "Category 2", "Category 3"]; // Example categories
+        let categories = ["Vegetables", "Meet and Fish", "Fruits"]; // Example categories
         categories.forEach((cat) => {
             let option = $("<option></option>").attr("value", cat).text(cat);
             if (cat === category) {
@@ -305,28 +305,24 @@ $(document).ready(function (){
     }
 
     // Arrow key navigation for input fields
-    $(".info-section input, .info-section textarea, .info-section select").keydown(function(e) {
+    $(".info-section input, .info-section textarea,.info-section select").keydown(function(e) {
         var inputs = $(".info-section input, .info-section textarea, .info-section select");
         var currentIndex = inputs.index(this);
 
-        if (e.keyCode == 37) { // Left arrow key
-            if (currentIndex > 0) {
+        if (e.keyCode == 37 || e.keyCode == 39 || e.keyCode == 38 || e.keyCode == 40) {
+            e.preventDefault(); // Prevent default action
+            if (e.keyCode == 37 && currentIndex > 0) { // Left arrow key
                 inputs.eq(currentIndex - 1).focus();
-            }
-        } else if (e.keyCode == 39) { // Right arrow key
-            if (currentIndex < inputs.length - 1) {
+            } else if (e.keyCode == 39 && currentIndex < inputs.length - 1) { // Right arrow key
                 inputs.eq(currentIndex + 1).focus();
-            }
-        } else if (e.keyCode == 38) { // Up arrow key
-            if (currentIndex > 0) {
+            } else if (e.keyCode == 38 && currentIndex > 0) { // Up arrow key
                 inputs.eq(currentIndex - 1).focus();
-            }
-        } else if (e.keyCode == 40) { // Down arrow key
-            if (currentIndex < inputs.length - 1) {
+            } else if (e.keyCode == 40 && currentIndex < inputs.length - 1) { // Down arrow key
                 inputs.eq(currentIndex + 1).focus();
             }
         }
     });
+
 
 
 
