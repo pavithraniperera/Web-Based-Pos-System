@@ -300,7 +300,33 @@ $(document).ready(function (){
             });
         });
 
+
+
     }
+
+    // Arrow key navigation for input fields
+    $(".info-section input, .info-section textarea, .info-section select").keydown(function(e) {
+        var inputs = $(".info-section input, .info-section textarea, .info-section select");
+        var currentIndex = inputs.index(this);
+
+        if (e.keyCode == 37) { // Left arrow key
+            if (currentIndex > 0) {
+                inputs.eq(currentIndex - 1).focus();
+            }
+        } else if (e.keyCode == 39) { // Right arrow key
+            if (currentIndex < inputs.length - 1) {
+                inputs.eq(currentIndex + 1).focus();
+            }
+        } else if (e.keyCode == 38) { // Up arrow key
+            if (currentIndex > 0) {
+                inputs.eq(currentIndex - 1).focus();
+            }
+        } else if (e.keyCode == 40) { // Down arrow key
+            if (currentIndex < inputs.length - 1) {
+                inputs.eq(currentIndex + 1).focus();
+            }
+        }
+    });
 
 
 
