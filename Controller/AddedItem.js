@@ -78,7 +78,8 @@ $(document).ready(function (){
         let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc);
         itemArray.push(item);
         loadTable();
-        addItemCard(item)
+       /* addItemCard(item)*/
+        loadItemsByCategory()
         $("#text").text("Successfully added new customer")
         $("#successModal").modal("show");
         resetForm();
@@ -208,6 +209,34 @@ $(document).ready(function (){
 
   }
 
+    // Event listener for category selection
+    $("#categorySelect").change(function() {
+        var selectedCategory = $(this).val();
+        console.log(selectedCategory)
+
+        loadItemsByCategory(selectedCategory);
+    });
+
+    // Function to display items based on category
+    function loadItemsByCategory(category) {
+
+        var filteredItems = (category === 'All Items' || !category) ? itemArray : itemArray.filter(item => item.category === category);
+            var $itemContainer = $("#itemContainer .items-container");
+
+            // Clear the previous items
+            $itemContainer.empty();
+             console.log(filteredItems);
+            if (filteredItems.length === 0) {
+                $("#itemNoData").show();
+            } else {
+                $("#itemNoData").hide();
+
+                // Append the filtered items
+                filteredItems.forEach(item => addItemCard(item));
+            }
+
+    }
+
     // Check if there are no item cards and hide the container
     if ($(".items-container").children().length === 0) {
 
@@ -261,7 +290,7 @@ $(document).ready(function (){
             $("#itemCategory").empty();
 
             // Add new options
-            let categories = ["Category 1", "Category 2", "Category 3"]; // Example categories
+            let categories = ["Vegetables", "Meet and Fish", "Fruits"]; // Example categories
             categories.forEach((cat) => {
                 let option = $("<option></option>").attr("value", cat).text(cat);
                 if (cat === item.category) {
