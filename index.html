@@ -275,13 +275,14 @@
 
         </section>
         <section style="background-color: #eee; " class="item-container ">
-            <select class="form-select mb-2 item-category-container" aria-label="Select weight">
+            <select id="categorySelect" class="form-select mb-2 item-category-container" aria-label="Select weight">
 
                 <optgroup label="Select Category">
-                    <option value="250g">Vegetables</option>
-                    <option value="500g">Meet and Fish</option>
-                    <option value="250g">Fruits</option>
-                    <option value="250g">Juice</option>
+                    <option value="All Items">All Items</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Meet and Fish">Meet and Fish</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Juice">Juice</option>
                 </optgroup>
 
             </select>
@@ -449,9 +450,10 @@
                         <label for="itemCategory" class="form-label">Category</label>
                         <select class="form-select" id="itemCategory">
                             <option selected>Select category...</option>
-                            <option value="1">Category1</option>
-                            <option value="2">Category2</option>
-                            <option value="3">Category3</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Meet and Fish">Meet and Fish</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Juice">Juice</option>
                         </select>
                     </div>
                     <div class="mb-3">
