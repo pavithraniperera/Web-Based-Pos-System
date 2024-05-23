@@ -18,6 +18,9 @@ var css1 = {
            case "nav-customer":
                showSection("customerSection");
                break;
+           case "cust-nav":
+               showSection("customerSection");
+               break;
            case "nav-item":
                showSection("itemSection");
                break;
@@ -53,6 +56,10 @@ var css1 = {
     $("#nav-item").click(function () {
         handleNavClick($(this).attr("id"));
     });
+    $("#cust-nav").click(function () {
+    handleNavClick($(this).attr("id"));
+    $("#checkoutModal").modal("hide");
+});
 
     $("#nav-home").click(function () {
         handleNavClick($(this).attr("id"));
@@ -94,7 +101,7 @@ var css1 = {
     $(document).ready(function () {
         // Add event listener to the form for form submission
         $("#signIn").click(function (){
-            const usernameValue = $('#usernameModal').val().trim();
+           /* const usernameValue = $('#usernameModal').val().trim();
             if (!usernameValue) {
                 alert('Please enter your username.');
                 return;
@@ -119,7 +126,7 @@ var css1 = {
             if (foundUser.password !== passwordValue) {
                 alert('Incorrect password.');
                 return;
-            }
+            }*/
             $("#nav-login").click(function (){
                 $("#login").css(css1)
                 $("#dashboard").css(css2);
