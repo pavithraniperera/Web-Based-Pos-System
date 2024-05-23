@@ -101,7 +101,7 @@ var css1 = {
     $(document).ready(function () {
         // Add event listener to the form for form submission
         $("#signIn").click(function (){
-           /* const usernameValue = $('#usernameModal').val().trim();
+            const usernameValue = $('#usernameModal').val().trim();
             if (!usernameValue) {
                 alert('Please enter your username.');
                 return;
@@ -126,7 +126,7 @@ var css1 = {
             if (foundUser.password !== passwordValue) {
                 alert('Incorrect password.');
                 return;
-            }*/
+            }
             $("#nav-login").click(function (){
                 $("#login").css(css1)
                 $("#dashboard").css(css2);
