@@ -348,16 +348,20 @@
                                         <option selected disabled value="">Select Customer ID</option>
                                         <option value="1">Customer ID 1</option>
                                         <option value="2">Customer ID 2</option>
-                                        <!-- Add more options as needed -->
+
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="custName" class="form-label">Name</label>
                                     <input type="text" class="form-control" id="custName" name="customerName" required>
                                 </div>
+                                <!-- New button to navigate to customer page -->
+                                <div class="mb-3">
+                                    <span id="cust-nav" class="btn btn-primary">Go to Customer Page</span>
+                                </div>
                             </form>
 
-                            <!-- Payment options and bill summary content-->
+                            <!-- Payment options and bill summary content -->
                             <h6>Payment Type</h6>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="paymentType" id="creditCard" checked>
@@ -401,6 +405,7 @@
                     </div>
                 </div>
             </div>
+
 
 
 
