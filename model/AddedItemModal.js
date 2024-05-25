@@ -1,11 +1,13 @@
  export  default class AddedItemModal{
 
-    constructor(name ,price ,quantity,category,description) {
+
+    constructor(name ,price ,quantity,category,description,imgSrc) {
         this._name = name;
         this._price =price;
         this._quantity = quantity;
         this._category  = category;
         this._description = description;
+        this._imgSrc = imgSrc;
 
     }
 
@@ -48,4 +50,12 @@
     set description(value) {
         this._description = value;
     }
+
+     get imgSrc() {
+         return this._imgSrc;
+     }
+
+     set imgSrc(value) {
+         this._imgSrc = value;
+     }
 }
