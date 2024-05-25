@@ -88,7 +88,27 @@ $(document).ready(function (){
     });
 
 
+    let selectedImage = null;
 
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                selectedImage = e.target.result;
+                showImagePreview(selectedImage);
+                console.log(selectedImage); // Log the image data after it's been read
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function showImagePreview(imageSrc) {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.innerHTML = `
+        <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100%; max-height: 100%;">
+    `;
+    }
 
 
 
