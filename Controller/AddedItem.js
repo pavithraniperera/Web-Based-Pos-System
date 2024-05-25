@@ -75,7 +75,8 @@ $(document).ready(function (){
 
 
 
-        let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc);
+
+        let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc,selectedImage);
         itemArray.push(item);
         loadTable();
        /* addItemCard(item)*/
@@ -106,7 +107,7 @@ $(document).ready(function (){
     function showImagePreview(imageSrc) {
         const imagePreview = document.getElementById('imagePreview');
         imagePreview.innerHTML = `
-        <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100%; max-height: 100%;">
+        <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100px; max-height: 100px;">
     `;
     }
 
@@ -199,8 +200,14 @@ $(document).ready(function (){
     });
 
   function  addItemCard(item){
+      var imageUrl;
+      if (item.imgSrc===null){
+           imageUrl = "assets/images/brocoli.png"
+      }else {
+           imageUrl = item.imgSrc;
+      }
       var name = item.name;
-      var imageUrl = "assets/images/brocoli.png";
+
       var price = item.price
       let newItemCard = `
         <div class="card item-card">
