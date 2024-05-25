@@ -107,7 +107,7 @@ $(document).ready(function (){
     function showImagePreview(imageSrc) {
         const imagePreview = document.getElementById('imagePreview');
         imagePreview.innerHTML = `
-        <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100px; max-height: 100px;">
+        <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100%; max-height: 100%;">
     `;
     }
 
@@ -143,10 +143,12 @@ $(document).ready(function (){
         editItem = new AddedItemModal(name,price,qty,category,desc);
     });
     $("#editItem").click(function (){
+        let item = getItemByName(editItem.name);
         $("#itemNameModal").val(editItem.name);
         $("#itemPriceModal").val(editItem.price);
         $("#itemQuantityMoadal").val(editItem.quantity);
         $("#itemCategoryModal").val(editItem.category);
+
         console.log(editItem.category);
 
     });
@@ -165,6 +167,7 @@ $(document).ready(function (){
         itemObj.price =priceModalValue;
         itemObj.quantity = qtyModalValue;
         itemObj.category = categoryModalValue;
+        itemObj.imgSrc = selectedImage;
 
         $("#itemEditModal").modal("hide");
         loadTable();
@@ -184,6 +187,11 @@ $(document).ready(function (){
     function resetForm() {
         $(".info-section input, .info-section textarea").val(""); // Set value to empty string for input and textarea elements
         $(".info-section select").prop("selectedIndex", 0);
+        selectedImage=null;
+        document.getElementById('imagePreview').innerHTML = `
+        <span class="upload-icon">+</span>
+        <p class="upload-text">Click or drag & drop an image</p>
+    `
     }
 
     $("#clearCustomer").click(function (){
@@ -202,7 +210,7 @@ $(document).ready(function (){
   function  addItemCard(item){
       var imageUrl;
       if (item.imgSrc===null){
-           imageUrl = "assets/images/brocoli.png"
+           imageUrl = "assets/images/no_image.png"
       }else {
            imageUrl = item.imgSrc;
       }
@@ -212,7 +220,7 @@ $(document).ready(function (){
       let newItemCard = `
         <div class="card item-card">
             <div class="image-custom">
-                <img src="${imageUrl}" class="card-img-top" alt="${name}">
+                <img src="${imageUrl}" class="card-img-top" alt="${name}" width="10vw" height="14vh">
             </div>
             <div class="card-body item-desc-custom">
                 <h5 class="card-title">${name}</h5>
@@ -226,15 +234,20 @@ $(document).ready(function (){
                     Add Item
                 </a>
             </div>
+             <i id="edit_icon" class="fa fa-edit edit-icon" aria-hidden="true" ></i>
         </div>
     `;
 
       // Append the new item card to the items container
       $(".items-container").append(newItemCard);
-      $("#itemNoData").hide()
+      $("#itemNoData").hide();
       $("#itemContainer").show();
 
   }
+
+    function getItemByName(itemName) {
+        return itemArray.find(item => item.name.toLowerCase() === itemName.toLowerCase());
+    }
 
     // Event listener for category selection
     $("#categorySelect").change(function() {
@@ -296,17 +309,20 @@ $(document).ready(function (){
         searchItem(itemName);
     }
 
+
     function searchItem(itemName) {
         let filterItem = itemArray.filter(item => item.name === itemName);
         if (filterItem.length === 0) {
-            $("#errorText").text("No Customer Data found for the given customer ID.")
+            $("#errorText").text("No Item Data found for the given Item name.")
             $("#errorModal").modal("show");
             return
         }
 
+
         displayFilteredItem(filterItem);
 
     }
+
 
     function displayFilteredItem(filterItem) {
         filterItem.forEach(item=>{
