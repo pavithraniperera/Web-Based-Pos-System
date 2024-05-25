@@ -69,6 +69,11 @@ section{
     margin: auto;
 
 }
+#edit_icon{
+    font-size: 29px;
+    padding: 8px;
+    display: none;
+}
 .image-custom img {
     width: 10vw;
     height: 14vh;
@@ -101,6 +106,9 @@ section{
 }
 .item-card:hover {
     transform: scale(1.05);
+    #edit_icon{
+        display: block;
+    }
 }
 .item-desc-custom{
     position: absolute;
