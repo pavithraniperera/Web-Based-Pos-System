@@ -141,7 +141,7 @@ $(document).ready(function (){
         $("#itemQuantity").val(qty);
         $("#itemDescription").val(desc);
         $("#itemCategory").empty();
-        showImagePreview(item.imgSrc)
+        showImagePreview(item.imgSrc);
 
         CategorySelect("itemCategory",category)
 
@@ -163,53 +163,69 @@ $(document).ready(function (){
         });
     }
     $("#editItem").click(function (){
-        let item = getItemByName(editItem.name);
-        $("#itemNameModal").val(editItem.name);
-        $("#itemPriceModal").val(editItem.price);
-        $("#itemQuantityMoadal").val(editItem.quantity);
-
-        CategorySelect("itemCategoryModal",editItem.category);
-        // Set image preview
-        if (item.imgSrc) {
-            $('#imagePreviewModal').html(`
-                <img src="${item.imgSrc}" alt="${item.name}" class="preview-img" style="max-width: 100%; max-height: 100%;">
-            `);
-            selectedImage = item.imgSrc;
-        } else {
-            $('#imagePreviewModal').html(`
-                <span class="upload-icon">+</span>
-                <p class="upload-text">Click or drag & drop an image</p>
-            `);
-            selectedImage = null;
-        }
-
-        console.log(editItem.category);
+        editItemFunction(editItem);
 
     });
 
+   function editItemFunction(editItem){
+       $("#itemEditModal").data('itemName', editItem.name); // Store item name in modal data attribute
+       let item = getItemByName(editItem.name);
+       $("#itemNameModal").val(editItem.name);
+       $("#itemPriceModal").val(editItem.price);
+       $("#itemQuantityMoadal").val(editItem.quantity);
 
-    $("#saveItemChanges").click(function (){
+       CategorySelect("itemCategoryModal",editItem.category);
+       // Set image preview
+       if (item.imgSrc) {
+           $('#imagePreviewModal').html(`
+                <img src="${item.imgSrc}" alt="${item.name}" class="preview-img" style="max-width: 100%; max-height: 100%;">
+            `);
+           selectedImage = item.imgSrc;
+       } else {
+           $('#imagePreviewModal').html(`
+                <span class="upload-icon">+</span>
+                <p class="upload-text">Click or drag & drop an image</p>
+            `);
+           selectedImage = null;
+       }
+
+       console.log(editItem.category);
+
+
+   }
+
+    $("#saveItemChanges").click(function () {
         var nameModalValue = $("#itemNameModal").val();
         var priceModalValue = $("#itemPriceModal").val();
         var qtyModalValue = $("#itemQuantityMoadal").val();
         var Value =document.getElementById("itemCategoryModal");
         var categoryModalValue =  Value.options[Value.selectedIndex].text;
 
+        const itemName = $("#itemEditModal").data('itemName');
+        const itemIndex = itemArray.findIndex(item => item.name === itemName);
 
-        let itemObj = itemArray[recordIndex];
-        itemObj.name =nameModalValue;
-        itemObj.price =priceModalValue;
-        itemObj.quantity = qtyModalValue;
-        itemObj.category = categoryModalValue;
-        itemObj.imgSrc = selectedImage;
+        if (itemIndex !== -1) {
+            let itemObj = itemArray[itemIndex];
+            itemObj.name = nameModalValue;
+            itemObj.price = priceModalValue;
+            itemObj.quantity = qtyModalValue;
+            itemObj.category = categoryModalValue;
+            itemObj.imgSrc = selectedImage;
 
-        $("#itemEditModal").modal("hide");
-        loadTable();
-        loadItemsByCategory()
-        resetForm()
-        $("#successModal").modal("show");
+            // Update the item card UI here if necessary
 
+            $("#itemEditModal").modal("hide");
+            loadTable();
+            loadItemsByCategory()
+            resetForm()
+            $("#successModal").modal("show");
+
+        } else {
+            console.error("Item not found in the array:", itemName);
+        }
     });
+
+
     $("#okBtn").click(function (){
         $("#successModal").modal("hide");
     });
@@ -254,7 +270,7 @@ $(document).ready(function (){
 
       var price = item.price
       let newItemCard = `
-        <div class="card item-card">
+        <div class="card item-card" data-name="${name}">
             <div class="image-custom">
                 <img src="${imageUrl}" class="card-img-top" alt="${name}" width="10vw" height="14vh">
             </div>
@@ -270,7 +286,10 @@ $(document).ready(function (){
                     Add Item
                 </a>
             </div>
-             <i id="edit_icon" class="fa fa-edit edit-icon" aria-hidden="true" ></i>
+            
+           <i id="edit_icon" class="fa fa-edit edit-icon" aria-hidden="true" ></i>
+    
+             
         </div>
     `;
 
@@ -280,6 +299,19 @@ $(document).ready(function (){
       $("#itemContainer").show();
 
   }
+
+    $(document).on('click', '.edit-icon', function () {
+        // Get the item name from the data attribute
+        const itemName = $(this).closest('.item-card').data('name');
+        let item = getItemByName(itemName);
+        if (item) {
+            editItemFunction(item);
+
+            $("#itemEditModal").modal("show");
+        }
+    });
+
+
 
     function getItemByName(itemName) {
         return itemArray.find(item => item.name.toLowerCase() === itemName.toLowerCase());
