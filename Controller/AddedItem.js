@@ -143,23 +143,32 @@ $(document).ready(function (){
         $("#itemCategory").empty();
         showImagePreview(item.imgSrc)
 
-        // Add new options
-        let categories = ["Vegetables", "Meet and Fish", "Fruits"]; // Example categories
-        categories.forEach((cat) => {
-            let option = $("<option></option>").attr("value", cat).text(cat);
-            if (cat === category) {
-                option.attr("selected", true); // Select the matching category
-            }
-            $("#itemCategory").append(option);
-        });
+        CategorySelect("itemCategory",category)
+
+
         editItem = new AddedItemModal(name,price,qty,category,desc);
     });
+
+    function CategorySelect(selectElementId, selectedCategory) {
+        let categories = ["Vegetables", "Meet and Fish", "Fruits","Juice"]; // Example categories
+        const selectElement = $(`#${selectElementId}`);
+        selectElement.empty(); // Clear any existing options
+
+        categories.forEach((cat) => {
+            let option = $("<option></option>").attr("value", cat).text(cat);
+            if (cat === selectedCategory) {
+                option.attr("selected", true); // Select the matching category
+            }
+            selectElement.append(option);
+        });
+    }
     $("#editItem").click(function (){
         let item = getItemByName(editItem.name);
         $("#itemNameModal").val(editItem.name);
         $("#itemPriceModal").val(editItem.price);
         $("#itemQuantityMoadal").val(editItem.quantity);
-        $("#itemCategoryModal").val(editItem.category);
+
+        CategorySelect("itemCategoryModal",editItem.category);
         // Set image preview
         if (item.imgSrc) {
             $('#imagePreviewModal').html(`
@@ -230,7 +239,7 @@ $(document).ready(function (){
         loadItemsByCategory()
         $("#itemDeleteModal").modal("hide");
         resetForm()
-        $("#text").text("Successfully Deleted a customer")
+        $("#text").text("Successfully Deleted a Item")
         $("#successModal").modal("show");
     });
 
@@ -360,15 +369,7 @@ $(document).ready(function (){
             $("#itemDescription").val(item.description);
             $("#itemCategory").empty();
 
-            // Add new options
-            let categories = ["Vegetables", "Meet and Fish", "Fruits"]; // Example categories
-            categories.forEach((cat) => {
-                let option = $("<option></option>").attr("value", cat).text(cat);
-                if (cat === item.category) {
-                    option.attr("selected", true); // Select the matching category
-                }
-                $("#itemCategory").append(option);
-            });
+            CategorySelect("itemCategory",item.category);
         });
 
 
