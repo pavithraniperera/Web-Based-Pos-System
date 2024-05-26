@@ -78,7 +78,7 @@ $(document).ready(function (){
         loadTable();
        /* addItemCard(item)*/
         loadItemsByCategory()
-        $("#text").text("Successfully added new customer")
+        $("#text").text("Successfully added new Item")
         $("#successModal").modal("show");
         resetForm();
 
@@ -196,6 +196,7 @@ $(document).ready(function (){
 
         $("#itemEditModal").modal("hide");
         loadTable();
+        loadItemsByCategory()
         resetForm()
         $("#successModal").modal("show");
 
@@ -219,13 +220,14 @@ $(document).ready(function (){
     `
     }
 
-    $("#clearCustomer").click(function (){
+    $("#clearItem").click(function (){
         resetForm();
     });
 
     $("#confirmItemDelete").click(function (){
         itemArray.splice(recordIndex,1);
         loadTable();
+        loadItemsByCategory()
         $("#itemDeleteModal").modal("hide");
         resetForm()
         $("#text").text("Successfully Deleted a customer")
@@ -322,6 +324,7 @@ $(document).ready(function (){
             performSearch();
         }
     });
+
 
     function performSearch() {
         var itemName = $("#itemInput").val().trim();
