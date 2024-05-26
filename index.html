@@ -504,63 +504,10 @@
                 </div>
             </div>
 
-            <!-- Edit Modal -->
 
-            <div class="modal fade" id="itemEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="itemEditModalLabel">Edit Item</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <h4 class="mb-4">Upload Image (Optional)</h4>
-                                    <div class="image-preview" id="imagePreviewModal">
-                                        <span class="upload-icon">+</span>
-                                        <p class="upload-text">Click or drag & drop an image</p>
-                                    </div>
-                                    <input type="file" id="imageUploadModal" accept=".png, .jpg, .jpeg" style="display: none;">
-                                    <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUploadModal').click()">
-                                        <i class="fa-solid fa-camera"></i>Choose Image
-                                    </button>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="itemNameModal" class="form-label">Item Name</label>
-                                            <input type="text" class="form-control" id="itemNameModal" placeholder="Enter item name">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="itemPriceModal" class="form-label">Price</label>
-                                            <input type="text" class="form-control" id="itemPriceModal" placeholder="Enter price">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="itemQuantityMoadal" class="form-label">Quantity</label>
-                                            <input type="number" class="form-control" id="itemQuantityMoadal" placeholder="Enter quantity">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="itemCategoryModal" class="form-label">Category</label>
-                                            <select class="form-select" id="itemCategoryModal">
-                                                <option selected>Select category...</option>
-                                                <option value="Vegetable">Vegetable</option>
-                                                <option value="Meat and Fish">Meat and Fish</option>
-                                                <option value="Fruit">Fruit</option>
-                                                <option value="Juice">Juice</option>
-                                            </select>
-                                        </div>
-                                        <button id="saveItemChanges" type="button" class="btn btn-primary">Save Changes</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
 
         </section>
+
 
 
         <section class="table-section custom-style">
@@ -585,6 +532,62 @@
             </div>
         </section>
     </section>
+
+    <!-- Edit Modal of item -->
+
+    <div class="modal fade" id="itemEditModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemEditModalLabel">Edit Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <h4 class="mb-4">Upload Image (Optional)</h4>
+                            <div class="image-preview" id="imagePreviewModal">
+                                <span class="upload-icon">+</span>
+                                <p class="upload-text">Click or drag & drop an image</p>
+                            </div>
+                            <input type="file" id="imageUploadModal" accept=".png, .jpg, .jpeg" style="display: none;">
+                            <button class="btn btn-primary upload-btn" onclick="document.getElementById('imageUploadModal').click()">
+                                <i class="fa-solid fa-camera"></i>Choose Image
+                            </button>
+                        </div>
+                        <div class="col-md-6 ">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="itemNameModal" class="form-label">Item Name</label>
+                                    <input type="text" class="form-control" id="itemNameModal" placeholder="Enter item name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="itemPriceModal" class="form-label">Price</label>
+                                    <input type="text" class="form-control" id="itemPriceModal" placeholder="Enter price">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="itemQuantityMoadal" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control" id="itemQuantityMoadal" placeholder="Enter quantity">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="itemCategoryModal" class="form-label">Category</label>
+                                    <select class="form-select" id="itemCategoryModal">
+                                        <option selected>Select category...</option>
+                                        <option value="Vegetable">Vegetable</option>
+                                        <option value="Meat and Fish">Meat and Fish</option>
+                                        <option value="Fruit">Fruit</option>
+                                        <option value="Juice">Juice</option>
+                                    </select>
+                                </div>
+                                <button id="saveItemChanges" type="button" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <!--Customer section-->
 
