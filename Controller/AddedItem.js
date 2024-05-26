@@ -73,9 +73,6 @@ $(document).ready(function (){
 
 
 
-
-
-
         let item = new AddedItemModal(itemName,itemPrice,itemQuantity,itemCategory,itemDesc,selectedImage);
         itemArray.push(item);
         loadTable();
@@ -91,18 +88,6 @@ $(document).ready(function (){
 
     let selectedImage = null;
 
-    document.getElementById('imageUpload').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                selectedImage = e.target.result;
-                showImagePreview(selectedImage);
-                console.log(selectedImage); // Log the image data after it's been read
-            };
-            reader.readAsDataURL(file);
-        }
-    });
 
     function showImagePreview(imageSrc) {
         const imagePreview = document.getElementById('imagePreview');
@@ -110,6 +95,31 @@ $(document).ready(function (){
         <img src="${imageSrc}" alt="Selected Image" class="preview-img" style="max-width: 100%; max-height: 100%;">
     `;
     }
+
+
+    function handleImageUpload(event, previewElementId) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                 selectedImage = e.target.result;
+                document.getElementById(previewElementId).innerHTML = `
+                <img src="${selectedImage}" alt="Selected Image" class="preview-img" style="max-width: 100%; max-height: 100%;">
+            `;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Attach event listeners to both file inputs
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+        handleImageUpload(event, 'imagePreview');
+    });
+    document.getElementById('imageUploadModal').addEventListener('change', function(event) {
+        console.log('Modal image upload changed');
+        handleImageUpload(event, 'imagePreviewModal');
+    });
+
 
 
 
@@ -124,12 +134,14 @@ $(document).ready(function (){
         let qty = $(this).find(".quantity").text();
         let category =$(this).find(".category").text();
         let desc = $(this).find(".description").text()
+        let item = getItemByName(name);
 
         $("#itemName").val(name);
         $("#itemPrice").val(price);
         $("#itemQuantity").val(qty);
         $("#itemDescription").val(desc);
         $("#itemCategory").empty();
+        showImagePreview(item.imgSrc)
 
         // Add new options
         let categories = ["Vegetables", "Meet and Fish", "Fruits"]; // Example categories
@@ -148,6 +160,19 @@ $(document).ready(function (){
         $("#itemPriceModal").val(editItem.price);
         $("#itemQuantityMoadal").val(editItem.quantity);
         $("#itemCategoryModal").val(editItem.category);
+        // Set image preview
+        if (item.imgSrc) {
+            $('#imagePreviewModal').html(`
+                <img src="${item.imgSrc}" alt="${item.name}" class="preview-img" style="max-width: 100%; max-height: 100%;">
+            `);
+            selectedImage = item.imgSrc;
+        } else {
+            $('#imagePreviewModal').html(`
+                <span class="upload-icon">+</span>
+                <p class="upload-text">Click or drag & drop an image</p>
+            `);
+            selectedImage = null;
+        }
 
         console.log(editItem.category);
 
